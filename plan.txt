@@ -1,0 +1,16 @@
+1. mnist:
+klasyfikator #(done)
+zaimplementowac xai IG #(done)
+zaszumic gausem #(done)
+zbadać metryki: cos-similarity, top-k iou, deletion auc
+zaimplementowac atak jeden
+zbadac metryki dla atak jeden
+zaimplementowac atak dwa
+zbadac metryki dla atak dwa
+zaimplementowac xai Oclusion
+zaszumic gausem
+zbadać metryki
+zaimplementowac atak jeden
+zbadac metryki dla atak jeden
+zaimplementowac atak dwa
+zbadac metryki dla atak dwa
