@@ -5,6 +5,16 @@ zaszumic gausem #(done)
 zbadać metryki: cos-similarity, top-k iou, deletion auc
 zaimplementowac atak jeden
 zbadac metryki dla atak jeden
+
+teraz dobrać przykłady ktore dobrze klasyfikuje i na nich sie skupic
+
+
+
+
+
+
+
+
 zaimplementowac atak dwa
 zbadac metryki dla atak dwa
 zaimplementowac xai Oclusion
