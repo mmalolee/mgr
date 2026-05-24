@@ -38,18 +38,13 @@ class Metrics:
         steps=20,
         baseline_value=-1.0,
     ):
-        x_deleted = input_tensor.clone().detach()
-        _, C, H, W = x_deleted.shape
+        device = next(model.parameters()).device
+        x_deleted = input_tensor.clone().detach().to(device)
 
+        _, C, H, W = x_deleted.shape
         total_pixels = H * W
 
-        attr_flat = attribution_map.flatten()
-
-        importance = np.maximum(attr_flat, 0)
-
-        if np.all(importance == 0):
-            importance = np.abs(attr_flat)
-
+        importance = attribution_map.flatten()
         sorted_indices = np.argsort(importance)[::-1]
 
         confidences = []

@@ -128,9 +128,3 @@ class ModelTrainer:
 
     def save_model(self, path):
         torch.save(self.model.state_dict(), path)
-
-    def load_model(self, path):
-        state_dict = torch.load(path, map_location=self.device)
-        self.model.load_state_dict(state_dict)
-        self.model.to(self.device)
-        self.model.eval()

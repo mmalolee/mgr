@@ -1,3 +1,4 @@
+import numpy as np
 import torch
 from captum.attr import IntegratedGradients, Occlusion
 
@@ -11,6 +12,7 @@ class IGExplainer:
 
     def explain(self, input_tensor, target_class):
         input_tensor = input_tensor.to(self.device)
+        input_tensor.requires_grad = True
         baseline = torch.full_like(
             input_tensor,
             self.config.baseline_value,
@@ -23,7 +25,20 @@ class IGExplainer:
             n_steps=self.config.n_steps,
         )
 
-        return process_attribution_raw(attr)
+        return self.process_raw_attribution(attr)
+
+    def process_raw_attribution(self, attr_tensor):
+        attr_np = attr_tensor.squeeze(0).detach().cpu().numpy()
+
+        signed_map = attr_np.sum(axis=0)
+        magnitude_map = np.abs(attr_np).sum(axis=0)
+        deletion_map = np.clip(signed_map, 0, None)
+
+        return {
+            "raw": signed_map,
+            "abs": magnitude_map,
+            "deletion": deletion_map,
+        }
 
 
 class OcclusionExplainer:
@@ -48,13 +63,17 @@ class OcclusionExplainer:
             target=target_class,
         )
 
-        return process_attribution_raw(attr)
+        return self.process_raw_attribution(attr)
 
+    def process_raw_attribution(self, attr_tensor):
+        attr_np = attr_tensor.squeeze(0).detach().cpu().numpy()
 
-def process_attribution_raw(attr_tensor):
-    attr_np = attr_tensor.squeeze(0).detach().cpu().numpy()
+        signed_map = attr_np.sum(axis=0)
+        magnitude_map = np.abs(attr_np).sum(axis=0)
+        deletion_map = np.clip(signed_map, 0, None)
 
-    if attr_np.ndim == 3:
-        attr_np = attr_np.sum(axis=0)
-
-    return attr_np
+        return {
+            "raw": signed_map,
+            "abs": magnitude_map,
+            "deletion": deletion_map,
+        }

@@ -23,18 +23,49 @@ def tensor_to_img(tensor):
     return img_np
 
 
-def plot_image(ax, img, title, cmap=None):
-    ax.imshow(img, cmap=cmap)
+def plot_image(
+    ax,
+    img,
+    title,
+    cmap=None,
+    vmin=None,
+    vmax=None,
+):
+    ax.imshow(
+        img,
+        cmap=cmap,
+        vmin=vmin,
+        vmax=vmax,
+    )
+
     ax.set_title(title)
     ax.axis("off")
 
 
-def initialize_resnet18(num_classes=10):
-    model = models.resnet18(weights=models.ResNet18_Weights.DEFAULT)
+def initialize_resnet18(num_classes=10, pretrained=True):
+    if pretrained:
+        model = models.resnet18(weights=models.ResNet18_Weights.DEFAULT)
+
+    else:
+        model = models.resnet18(weights=None)
 
     model.fc = nn.Linear(
         model.fc.in_features,
         num_classes,
     )
+
+    return model
+
+
+def load_model_weights(model, path, device):
+    state_dict = torch.load(
+        path,
+        map_location=device,
+    )
+
+    model.load_state_dict(state_dict)
+
+    model = model.to(device)
+    model.eval()
 
     return model

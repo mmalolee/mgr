@@ -30,8 +30,13 @@ class XAIExperiment:
         self.deletion_steps = deletion_steps
         self.baseline_value = baseline_value
 
-    def get_clean_tensor(self, class_id):
-        return self.clean_examples[class_id].unsqueeze(0).to(self.device)
+    def get_clean_tensor(self, class_id, to_device=True):
+        tensor = self.clean_examples[class_id].unsqueeze(0)
+
+        if to_device:
+            tensor = tensor.to(self.device)
+
+        return tensor
 
     def get_perturbed_tensor(self, clean_tensor, class_id, perturbation_type, value):
         if perturbation_type == "gaussian":
@@ -85,12 +90,12 @@ class XAIExperiment:
                 clean_attr = self.explainer.explain(
                     input_tensor=clean_tensor,
                     target_class=class_id,
-                )
+                )["abs"]
 
                 perturbed_attr = self.explainer.explain(
                     input_tensor=perturbed_tensor,
                     target_class=class_id,
-                )
+                )["abs"]
 
                 cosine = Metrics.cosine_similarity(
                     clean_attr,
@@ -132,25 +137,32 @@ class XAIExperiment:
                     value=value,
                 )
 
-                clean_info = self.get_prediction_info(
-                    input_tensor=clean_tensor,
-                    target_class=class_id,
-                )
+                with torch.no_grad():
+                    clean_output = self.model(clean_tensor)
+                    perturbed_output = self.model(perturbed_tensor)
 
-                perturbed_info = self.get_prediction_info(
-                    input_tensor=perturbed_tensor,
-                    target_class=class_id,
-                )
+                    clean_pred = clean_output.argmax(dim=1).item()
+                    perturbed_pred = perturbed_output.argmax(dim=1).item()
+
+                    clean_target_conf = torch.softmax(
+                        clean_output,
+                        dim=1,
+                    )[0, class_id].item()
+
+                    perturbed_target_conf = torch.softmax(
+                        perturbed_output,
+                        dim=1,
+                    )[0, class_id].item()
 
                 clean_attr = self.explainer.explain(
                     input_tensor=clean_tensor,
                     target_class=class_id,
-                )
+                )["deletion"]
 
                 perturbed_attr = self.explainer.explain(
                     input_tensor=perturbed_tensor,
                     target_class=class_id,
-                )
+                )["deletion"]
 
                 clean_auc = Metrics.deletion_auc(
                     model=self.model,
@@ -176,14 +188,9 @@ class XAIExperiment:
                         "Value": value,
                         "ClassID": class_id,
                         "ClassName": self.class_names[class_id],
-                        "CleanPred": clean_info["pred"],
-                        "PerturbedPred": perturbed_info["pred"],
-                        "PredictionChanged": clean_info["pred"]
-                        != perturbed_info["pred"],
-                        "CleanPredConfidence": clean_info["pred_conf"],
-                        "PerturbedPredConfidence": perturbed_info["pred_conf"],
-                        "CleanTargetConfidence": clean_info["target_conf"],
-                        "PerturbedTargetConfidence": perturbed_info["target_conf"],
+                        "PredictionChanged": clean_pred != perturbed_pred,
+                        "CleanTargetConfidence": clean_target_conf,
+                        "PerturbedTargetConfidence": perturbed_target_conf,
                         "DeletionAUC_Clean": clean_auc,
                         "DeletionAUC_Perturbed": perturbed_auc,
                     }
@@ -221,6 +228,7 @@ class XAIExperiment:
                 CleanAUCStd=("DeletionAUC_Clean", "std"),
                 PerturbedAUCMean=("DeletionAUC_Perturbed", "mean"),
                 PerturbedAUCStd=("DeletionAUC_Perturbed", "std"),
+                CleanTargetConfidenceMean=("CleanTargetConfidence", "mean"),
                 PerturbedTargetConfidenceMean=("PerturbedTargetConfidence", "mean"),
                 PredictionChanges=("PredictionChanged", "sum"),
             )
