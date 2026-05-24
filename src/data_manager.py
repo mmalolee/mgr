@@ -110,7 +110,7 @@ class DataManager:
         self,
         dataset_name,
         batch_size=64,
-        val_ratio=0.2,
+        val_ratio=0.1,
         num_workers=4,
         pin_memory=True,
         download=True,

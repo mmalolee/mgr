@@ -1,11 +1,5 @@
-from pathlib import Path
-
 import torch
-import torch.nn as nn
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-from torchvision import models
-import matplotlib.pyplot as plt
-import seaborn as sns
+from sklearn.metrics import accuracy_score, classification_report
 
 
 class ModelTrainer:
@@ -24,17 +18,6 @@ class ModelTrainer:
         }
 
         self.model.to(self.device)
-
-    @staticmethod
-    def initialize_resnet18(num_classes=10):
-        model = models.resnet18(weights=None)
-
-        model.fc = nn.Linear(
-            model.fc.in_features,
-            num_classes,
-        )
-
-        return model
 
     def train_one_epoch(self, train_loader):
         self.model.train()
@@ -136,41 +119,14 @@ class ModelTrainer:
             target_names=target_names,
         )
 
-        cm = confusion_matrix(all_labels, all_preds)
-
         return {
             "accuracy": accuracy,
             "classification_report": report,
-            "confusion_matrix": cm,
             "predictions": all_preds,
             "labels": all_labels,
         }
-    
-    def plot_confusion_matrix(self, cm):
-
-
-    plt.figure(figsize=(10, 8))
-
-    sns.heatmap(
-        cm,
-        annot=True,
-        fmt="d",
-        cmap="Blues",
-        xticklabels=list(self.class_names.values()),
-        yticklabels=list(self.class_names.values()),
-    )
-
-    plt.xlabel("Predicted")
-    plt.ylabel("True")
-    plt.title("Confusion Matrix")
-
-    plt.tight_layout()
-    plt.show()
 
     def save_model(self, path):
-        path = Path(path)
-        path.parent.mkdir(parents=True, exist_ok=True)
-
         torch.save(self.model.state_dict(), path)
 
     def load_model(self, path):

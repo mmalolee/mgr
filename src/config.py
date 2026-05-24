@@ -19,3 +19,10 @@ class ExperimentConfig:
     top_k_percent: float = 0.10
     deletion_steps: int = 20
     baseline_value: float = -1.0
+
+
+@dataclass
+class TrainingConfig:
+    batch_size: int = 64
+    epochs: int = 10
+    learning_rate: float = 0.001
