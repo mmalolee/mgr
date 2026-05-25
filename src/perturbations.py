@@ -38,6 +38,8 @@ class Perturbations:
         perturbation = epsilon * x.grad.sign()
         x_adv = x + perturbation
 
+        self.model.zero_grad()
+
         return torch.clamp(
             x_adv,
             self.clamp_min,
