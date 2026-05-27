@@ -42,10 +42,11 @@ class IGExplainer:
 
 
 class OcclusionExplainer:
-    def __init__(self, model, device, config):
+    def __init__(self, model, device, config, dataset):
         self.model = model
         self.device = device
         self.config = config
+        self.dataset = dataset
         self.occlusion = Occlusion(model)
 
     def explain(self, input_tensor, target_class):
@@ -55,10 +56,21 @@ class OcclusionExplainer:
             self.config.baseline_value,
         ).to(self.device)
 
+        if self.dataset == "mnist":
+            strides = self.config.mnist_strides
+            sliding_window_shapes = self.config.mnist_sliding_window_shapes
+
+        elif self.dataset == "cifar10":
+            strides = self.config.cifar10_strides
+            sliding_window_shapes = self.config.cifar10_sliding_window_shapes
+
+        else:
+            raise ValueError(f"Unknown dataset: {self.dataset}")
+
         attr = self.occlusion.attribute(
             input_tensor,
-            strides=self.config.strides,
-            sliding_window_shapes=self.config.sliding_window_shapes,
+            strides=strides,
+            sliding_window_shapes=sliding_window_shapes,
             baselines=baseline,
             target=target_class,
         )

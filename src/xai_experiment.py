@@ -55,8 +55,6 @@ class XAIExperiment:
         raise ValueError(f"Unknown perturbation_type: {perturbation_type}")
 
     def get_prediction_info(self, input_tensor, target_class):
-        self.model.eval()
-
         with torch.no_grad():
             output = self.model(input_tensor)
             probs = torch.softmax(output, dim=1)
@@ -71,15 +69,18 @@ class XAIExperiment:
             "target_conf": target_conf,
         }
 
+    def iter_clean_examples(self):
+        for class_id in self.selected_classes:
+            for example_idx, image in enumerate(self.clean_examples[class_id]):
+                yield class_id, example_idx, image.unsqueeze(0).to(self.device)
+
     def run_similarity_metrics(self, perturbation_type, values):
         results = []
 
         for value in values:
             print(f"Processing {perturbation_type}={value}")
 
-            for class_id in self.selected_classes:
-                clean_tensor = self.get_clean_tensor(class_id)
-
+            for class_id, example_idx, clean_tensor in self.iter_clean_examples():
                 perturbed_tensor = self.get_perturbed_tensor(
                     clean_tensor=clean_tensor,
                     class_id=class_id,
@@ -114,6 +115,7 @@ class XAIExperiment:
                         "Value": value,
                         "ClassID": class_id,
                         "ClassName": self.class_names[class_id],
+                        "ExampleID": example_idx,
                         "CosineSimilarity": cosine,
                         "TopK_IoU": iou,
                     }
@@ -127,9 +129,7 @@ class XAIExperiment:
         for value in values:
             print(f"Processing {perturbation_type}={value}")
 
-            for class_id in self.selected_classes:
-                clean_tensor = self.get_clean_tensor(class_id)
-
+            for class_id, example_idx, clean_tensor in self.iter_clean_examples():
                 perturbed_tensor = self.get_perturbed_tensor(
                     clean_tensor=clean_tensor,
                     class_id=class_id,
@@ -188,6 +188,7 @@ class XAIExperiment:
                         "Value": value,
                         "ClassID": class_id,
                         "ClassName": self.class_names[class_id],
+                        "ExampleID": example_idx,
                         "PredictionChanged": clean_pred != perturbed_pred,
                         "CleanTargetConfidence": clean_target_conf,
                         "PerturbedTargetConfidence": perturbed_target_conf,
@@ -200,10 +201,11 @@ class XAIExperiment:
 
     @staticmethod
     def make_pivot(df, value_column):
-        return df.pivot(
+        return df.pivot_table(
             index="Value",
             columns="ClassName",
             values=value_column,
+            aggfunc="mean",
         )
 
     @staticmethod
