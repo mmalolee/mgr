@@ -2,9 +2,11 @@ import torch
 from torch.utils.data import DataLoader, random_split
 from torchvision import datasets, transforms
 
+from src.paths import Paths
+
 
 class DataManager:
-    def __init__(self, root="../data"):
+    def __init__(self, root=Paths.PROJECT_ROOT):
         self.root = root
 
         self.class_names = {
@@ -106,6 +108,13 @@ class DataManager:
 
         return train_dataset, val_dataset
 
+    def get_test_dataset(self, dataset_name, download=True):
+        return self.get_dataset(
+            dataset_name=dataset_name,
+            train=False,
+            download=download,
+        )
+
     def get_data_loaders(
         self,
         dataset_name,
@@ -123,7 +132,7 @@ class DataManager:
             seed=seed,
         )
 
-        test_dataset = self.get_dataset(
+        test_dataset = self.get_test_dataset(
             dataset_name=dataset_name,
             train=False,
             download=download,
@@ -154,10 +163,3 @@ class DataManager:
         )
 
         return train_loader, val_loader, test_loader
-
-    def get_test_dataset(self, dataset_name, download=True):
-        return self.get_dataset(
-            dataset_name=dataset_name,
-            train=False,
-            download=download,
-        )
