@@ -13,6 +13,7 @@ class XAIExperiment:
         clean_examples,
         explainer,
         perturbations,
+        metrics=Metrics(),
         top_k_percent=0.10,
         deletion_steps=20,
         baseline_value=-1.0,
@@ -54,21 +55,6 @@ class XAIExperiment:
 
         raise ValueError(f"Unknown perturbation_type: {perturbation_type}")
 
-    def get_prediction_info(self, input_tensor, target_class):
-        with torch.no_grad():
-            output = self.model(input_tensor)
-            probs = torch.softmax(output, dim=1)
-
-            pred = output.argmax(dim=1).item()
-            pred_conf = probs[0, pred].item()
-            target_conf = probs[0, target_class].item()
-
-        return {
-            "pred": pred,
-            "pred_conf": pred_conf,
-            "target_conf": target_conf,
-        }
-
     def iter_clean_examples(self):
         for class_id in self.selected_classes:
             for example_idx, image in enumerate(self.clean_examples[class_id]):
@@ -76,6 +62,14 @@ class XAIExperiment:
 
     def run_similarity_metrics(self, perturbation_type, values):
         results = []
+
+        clean_attr_cache = {}
+
+        for class_id, example_idx, clean_tensor in self.iter_clean_examples():
+            clean_attr_cache[(class_id, example_idx)] = self.explainer.explain(
+                input_tensor=clean_tensor,
+                target_class=class_id,
+            )["abs"]
 
         for value in values:
             print(f"Processing {perturbation_type}={value}")
@@ -88,22 +82,19 @@ class XAIExperiment:
                     value=value,
                 )
 
-                clean_attr = self.explainer.explain(
-                    input_tensor=clean_tensor,
-                    target_class=class_id,
-                )["abs"]
+                clean_attr = clean_attr_cache[(class_id, example_idx)]
 
                 perturbed_attr = self.explainer.explain(
                     input_tensor=perturbed_tensor,
                     target_class=class_id,
                 )["abs"]
 
-                cosine = Metrics.cosine_similarity(
+                cosine = self.metrics.cosine_similarity(
                     clean_attr,
                     perturbed_attr,
                 )
 
-                iou = Metrics.topk_iou(
+                iou = self.metrics.topk_iou(
                     clean_attr,
                     perturbed_attr,
                     top_k_percent=self.top_k_percent,
@@ -126,6 +117,36 @@ class XAIExperiment:
     def run_deletion_auc(self, perturbation_type, values):
         results = []
 
+        clean_cache = {}
+
+        for class_id, example_idx, clean_tensor in self.iter_clean_examples():
+            with torch.no_grad():
+                clean_output = self.model(clean_tensor)
+                clean_pred = clean_output.argmax(dim=1).item()
+                clean_target_conf = torch.softmax(clean_output, dim=1)[
+                    0, class_id
+                ].item()
+
+            clean_attr = self.explainer.explain(
+                input_tensor=clean_tensor,
+                target_class=class_id,
+            )["deletion"]
+
+            clean_auc = self.metrics.deletion_auc(
+                model=self.model,
+                input_tensor=clean_tensor,
+                attribution_map=clean_attr,
+                target_class=class_id,
+                steps=self.deletion_steps,
+                baseline_value=self.baseline_value,
+            )
+
+            clean_cache[(class_id, example_idx)] = {
+                "pred": clean_pred,
+                "target_conf": clean_target_conf,
+                "auc": clean_auc,
+            }
+
         for value in values:
             print(f"Processing {perturbation_type}={value}")
 
@@ -138,42 +159,19 @@ class XAIExperiment:
                 )
 
                 with torch.no_grad():
-                    clean_output = self.model(clean_tensor)
                     perturbed_output = self.model(perturbed_tensor)
-
-                    clean_pred = clean_output.argmax(dim=1).item()
                     perturbed_pred = perturbed_output.argmax(dim=1).item()
-
-                    clean_target_conf = torch.softmax(
-                        clean_output,
-                        dim=1,
-                    )[0, class_id].item()
-
                     perturbed_target_conf = torch.softmax(
                         perturbed_output,
                         dim=1,
                     )[0, class_id].item()
-
-                clean_attr = self.explainer.explain(
-                    input_tensor=clean_tensor,
-                    target_class=class_id,
-                )["deletion"]
 
                 perturbed_attr = self.explainer.explain(
                     input_tensor=perturbed_tensor,
                     target_class=class_id,
                 )["deletion"]
 
-                clean_auc = Metrics.deletion_auc(
-                    model=self.model,
-                    input_tensor=clean_tensor,
-                    attribution_map=clean_attr,
-                    target_class=class_id,
-                    steps=self.deletion_steps,
-                    baseline_value=self.baseline_value,
-                )
-
-                perturbed_auc = Metrics.deletion_auc(
+                perturbed_auc = self.metrics.deletion_auc(
                     model=self.model,
                     input_tensor=perturbed_tensor,
                     attribution_map=perturbed_attr,
@@ -182,6 +180,8 @@ class XAIExperiment:
                     baseline_value=self.baseline_value,
                 )
 
+                clean_data = clean_cache[(class_id, example_idx)]
+
                 results.append(
                     {
                         "Perturbation": perturbation_type,
@@ -189,10 +189,10 @@ class XAIExperiment:
                         "ClassID": class_id,
                         "ClassName": self.class_names[class_id],
                         "ExampleID": example_idx,
-                        "PredictionChanged": clean_pred != perturbed_pred,
-                        "CleanTargetConfidence": clean_target_conf,
+                        "PredictionChanged": clean_data["pred"] != perturbed_pred,
+                        "CleanTargetConfidence": clean_data["target_conf"],
                         "PerturbedTargetConfidence": perturbed_target_conf,
-                        "DeletionAUC_Clean": clean_auc,
+                        "DeletionAUC_Clean": clean_data["auc"],
                         "DeletionAUC_Perturbed": perturbed_auc,
                     }
                 )
