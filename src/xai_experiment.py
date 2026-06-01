@@ -26,6 +26,7 @@ class XAIExperiment:
 
         self.explainer = explainer
         self.perturbations = perturbations
+        self.metrics = metrics
 
         self.top_k_percent = top_k_percent
         self.deletion_steps = deletion_steps
