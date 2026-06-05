@@ -1,0 +1,56 @@
+\documentclass[12pt, a4paper, twoside]{report} % 12 pkt, A4, wydruk obustronny
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage[inner=2.5cm, outer=2.5cm, top=2.5cm, bottom=2.5cm]{geometry} % Marginesy po 2,5 cm
+\usepackage{mathptmx} % Odpowiednik Times New Roman w LaTeX
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+
+\usepackage{setspace}
+\onehalfspacing % Interlinia 1,5
+
+\setlength{\parindent}{0.75cm} % Wcięcie akapitowe (np. 0,75 cm)
+\usepackage[none]{hyphenat} % Wyłączenie dzielenia wyrazów
+\sloppy % Pomaga w justowaniu przy wyłączonym dzieleniu wyrazów
+
+\clubpenalty=10000 % Zabrania sierot (pierwszy wiersz akapitu na końcu strony)
+\widowpenalty=10000 % Zabrania wdów (ostatni wiersz akapitu na nowej stronie)
+
+\usepackage{titlesec}
+% Rozdział: bold 14 pkt
+\titleformat{\chapter}[hang]{\normalfont\fontsize{14}{16}\bfseries}{\thechapter.}{1em}{}
+\titlespacing*{\chapter}{0pt}{0pt}{20pt} % Domyślnie LaTeX zaczyna od nowej strony
+
+% Podrozdział: bold 12 pkt
+\titleformat{\section}{\normalfont\fontsize{12}{14}\bfseries}{\thesection.}{1em}{}
+
+% Paragraf: bold 10 pkt
+\titleformat{\subsection}{\normalfont\fontsize{10}{12}\bfseries}{\thesubsection.}{1em}{}
+
+\usepackage{caption}
+\usepackage{float}
+\usepackage{graphicx}
+
+% Formatowanie podpisów (wielkość 11 pkt)
+\captionsetup{font=small, labelsep=period} % small przy 12pt daje ok. 11pt
+
+% Numeracja stron na środku w stopce (domyślne w klasie report w stylu plain)
+\pagestyle{plain}
+
+% Formatowanie podpisów (wielkość 11 pkt, tytuł bez kropki, odpowiednie pozycjonowanie)
+\captionsetup[table]{font=small, labelsep=period, position=top} 
+\captionsetup[figure]{font=small, labelsep=period, position=bottom}
+\usepackage{longtable} % Umożliwia łamanie tabel między stronami i powtarzanie nagłówków
+\usepackage[bottom]{footmisc} % Gwarantuje, że przypisy zawsze „przykleją” się do samego dołu strony
+\usepackage[backend=biber, style=verbose-trad1]{biblatex} % Automatycznie obsłuży skróty typu "Ibidem"
+\addbibresource{bibliografia.bib} % Ścieżka do Twojego pliku z literaturą
+
+\begin{document}
+
+\include{rozdzialy/1_zbiory_danych}
+\include{rozdzialy/2_srodowisko_badawcze}
+\include{rozdzialy/3_badania_mnist}
+\include{rozdzialy/4_badania_cifar}
+\include{rozdzialy/5_podsumowanie}
+
+\end{document}
