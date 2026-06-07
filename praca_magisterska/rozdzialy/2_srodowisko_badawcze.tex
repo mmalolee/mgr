@@ -1,7 +1,61 @@
 \chapter{Środowisko badawcze}
 
-\section{Modele klasyfikacyjne oraz proces trenowania}
-\section{Metody wyjaśniania decyzji modeli}
+W niniejszym rozdziale przedstawiono wszystkie elementy środowiska badawczego, które zostały wykorzystane w przeprowadzonych eksperymentach. Opisano przygotowanie danych, modeli klasyfikacyjnych, metod wyjaśniania decyzji modeli, metod generowania perturbacji oraz metryki oceny wyjaśnień. W całym eksperymencie zdecydowano się na podejście obiektowe i modułowe, co oznacza, że każdy z elementów środowiska badawczego został przygotowany w sposób niezależny, a następnie połączony w jedną całość. Takie podejście pozwoliło na elastyczność i możliwość łatwej modyfikacji poszczególnych elementów w przypadku potrzeby modyfikacji parametrów eksperymentu lub wprowadzenia nowych metod wyjaśniania decyzji modeli. W kolejnych sekcjach przedstawione zostaną szczegółowe informacje dotyczące każdego z elementów środowiska badawczego, co pozwoli na pełne zrozumienie procesu przeprowadzonych eksperymentów oraz interpretację uzyskanych wyników.
+
+\section{Przygotowanie danych oraz procesu trenowania}
+\label{sec:dane_i_trening}
+
+Tworzenie środowiska badawczego rozpoczęto od przygotowania klasy \texttt{DataManager}, która służyła do ujednolicenia procesu przygotowania danych wykorzystywanych w badaniach. Jej głównym zadaniem było zapewnienie wspólnego interfejsu do obsługi zbioru MNIST oraz CIFAR-10, obejmującego pobieranie danych, ich wstępne przetwarzanie, wyodrębnienie ze zbioru treningowego zbioru walidacyjnego, pobranie zbioru testowego oraz obiektów Data Loader, które umożliwiały iterację po danych w trakcie trenowania modeli. Dzięki temu możliwe było łatwe zarządzanie danymi oraz zapewnienie spójności w procesie przygotowania danych dla eksperymentów.
+Klasa przechowuje również mapowanie indeksów klas na ich nazwy, co ułatwia interpretację w przypadku zbioru CIFAR-10, gdzie indeksy liczbowe reprezentują różne klasy obrazów (np. 0 - samolot, 1 - samochód itd.). Metoda \texttt{get\_class\_names()} umożliwia pobranie słownika mapującego klasy dla podanego zbioru. 
+
+Istotnym elementem klasy \texttt{DataManager} jest metoda \texttt{get\_transform()}, która definiuje sposób przetwarzania obrazów w zależności od zbioru danych. Obrazy są przekształcane do rozmiaru 224x224 pikseli, następnie zamieniane na obiekty typu tensor. Ostatnim etapem przygotowywania danych dla modelu jest normalizacja. W badaniach została ona przeprowadzona zgodnie ze wzorem \ref{eq:x_norm}. 
+\begin{equation} \label{eq:x_norm}
+    x_{norm} = \frac{x - \mu}{\sigma}
+\end{equation}
+gdzie:
+\begin{description}
+    \item $x$ -- wartość wejściowa piksela,
+    \item $\mu$ -- średnia wartość pikseli dla danego zbioru,
+    \item $\sigma$ -- odchylenie standardowe wartości pikseli.
+\end{description}
+Wartości $\mu$ i $\sigma$ zostały przyjęte na poziomie 0.5. Podstawiajac te wartości do wzoru \ref{eq:x_norm} otrzymujemy:
+\begin{equation} \label{eq:x_norm_final}
+    x_{norm} = \frac{x - 0.5}{0.5} = 2x - 1
+\end{equation} 
+Po transformacji obrazów do obiektu typu tensor wartości pikseli zawierają się w przedziale [0, 1]. Podstawiając te wartości do wzoru \ref{eq:x_norm_final} otrzymujemy, że po normalizacji wartości pikseli zawierają się w przedziale [-1, 1]. Taka normalizacja pozwala na wycentrowanie danych wejściowych wokół zera, co może prowadzić do stabilniejszego przebiegu procesu uczenia oraz efektywniejszej optymalizacji parametrów modelu. Należy również uwzględnić dodatkowy krok transformacyjny w przypadku zbioru MNIST. Ponieważ obrazy w tym zbiorze są jednokanałowe (skala szarości), konieczne było dodanie dodatkowego kroku transformacyjnego, który rozszerza pojedynczy kanał do trzech kanałów RGB, ponieważ taki właśnie format wymagany jest przez architekturę sieci użytej w dalszych krokach.
+
+Metoda \texttt{get\_dataset()} pozwala na utworzenie odpowiedniego obiektu zbioru danych z biblioteki PyTorch, nakładając jednocześnie zdefiniowane wcześniej kroki transformacyjne. W celu wydzielenia zbioru walidacyjnego służącego to oceny modeli podczas procesu uczenia zaimplementowana została metoda \texttt{get\_train\_val\_datasets()}. Omawiana metoda pobiera pełny zbiór treningowy i wydobywa z niego zbiór walidacyjny o wielkości determinowanel przez parametr \texttt{val\_ratio}, który przyjęto na poziomie 0.1. Metoda \texttt{get\_test\_dataset()} stanowi wygodny sposób na pobranie zbioru testowego dla danego zbioru danych nakładając na niego odpowiednie transformacje. Ostatnią główną funkcjonalnością klasy \texttt{DataManager} jest metoda \texttt{get\_data\_loaders()}, która tworzy obiekty \texttt{DataLoader} dla zbioru treningowego, walidacyjnego oraz testowego. Obiekty te umożliwiają iterację po danych w trakcie trwania procesu uczenia modeli.
+
+Po przygotowaniu klasy odpowiedzialnej za zarządzanie danymi przystąpiono do implementacji modułu \texttt{ModelTrainer} służącego uporządkowaniu procesu treningu, walidacji oraz ewaluacji modeli klasyfikacyjnych wykorzystywanych w badaniach. Jej głównym zadaniem jest oddzielenie logiki uczenia modelu od pozostałych elementów projektu. 
+
+Obiekt klasy \texttt{ModelTrainer} przyjmuje model sieci neuronowej, urządzenie wykonujące obliczenia, funkcję straty, optymalizator oraz nazwy klas występujących w zbiorze. Przechowuje on również historię treningu oraz walidacji pozwalając na analizę skuteczności  procesu uczenia. Metoda \texttt{train\_one\_epoch()} realizuje pojedynczą epokę treningową. Dla kolejnych batchy wykonywana jest propagacja na przód, obliczanie funkcji straty, propagacja wsteczna ora aktualizaca wag modelu. Dla każdej epoki obliczana jest średnia wartość funkcji straty oraz dokładność klasyfikacji na zbiorze treningowym. W metodzie \texttt{validate()} dokonywana jest ocena modelu na zbiorze walidacyjnym w danej epoce. Wynikiem działania metody są średnia strata walidacyjna oraz dokładność klasyfikacji na zbiorze walidacyjnym. Metoda \texttt{fit()} pełni rolę orkiestratora dwóch poprzedników wywołując je w pętli po liczbie zadanych epok treningowych. Wyniki metod \texttt{train\_one\_epoch()} i \texttt{validate()} zapisywane są w historii treningu. Informacje w niej zawarte (dokładność oraz wartości funkcji straty) są wykorzystywane do oceny jakości procesu uczenia. Po zakończeniu treningu model może zostać oceniony na zbiorze testowym za pomocą metody \texttt{evaluate()}, która generuje predykcje dla wszystkich przykładów testowych oraz raport klasyfikacyjny zawierający metryki dla poszczególnych klas. Ostatnią funkcjonalnością klasy \texttt{ModelTrainer} jest metoda \texttt{save\_model()}, która umożliwia zapis wag modelu do pliku, dając możliwośc załadowanie i wykorzystywanie modelu w późniejszych badaniach.
+
 \section{Metody generowania perturbacji}
+
+W celu generowania zakłóconych wersji obrazów wejściowych wykorzystywanych w eksperymentach nad stabilnością metod XAI zaimplementowano klasę \texttt{Perturbations}. Jej głównym zadaniem jest przygotowanie danych poddanych perturbacjom, a następnie wykorzystanie ich do porównania map atrybucji uzyskanych dla obrazów oryginalnych i zaburzonych. 
+
+Obiekt klasy \texttt{Perturbations} przyjmuje model predykcyjny, urządzenie obliczeniowe oraz wartości ograniczające zakres pikseli po perturbacji. Zgodnie z opisem procesu przygotowania danych w sekcji \ref{sec:dane_i_trening}, dane wejściowe zostały znormalizowane do zakresu [-1, 1], zatem również takie wartości przyjęto jako domyślne w parametrach, zapewniają, że po dodaniu zakłócenia obraz nadal pozostaje w dopuszczalnym zakresie wartości wejściowych modelu. Jest to istotne, ponieważ zbyt duże perturbacje mogłyby przesunąć wartości pikseli poza zakres danych, na których model był trenowany.
+
+Pierwszą zaimplementowaną metodą perturbacji jest dodanie szumu Gaussa, który zapewnia metoda \texttt{gaussian()}. Tworzy ona losowy szum o takim samym rozmiarze jak tensor wejściowy, a następnie skaluje go przez parametr $\sigma$, który określa intensywność generowanych zakłóceń. Przygotowany szum jest dodawany do obrazu wejściowego zgodnie ze wzorem \ref{eq:szum_gaussa}.
+\begin{equation} \label{eq:szum_gaussa}
+    x_{noise} = x + \mathcal{N}(0, \sigma^2)
+\end{equation}
+gdzie:
+\begin{description}
+    \item[$x$] -- wartość wejściowa piksela,
+    \item[$\mathcal{N}(0, \sigma^2)$] -- szum pochodzący z rozkładu Gaussa ze średnią równą 0 i i odchyleniu standardowym $\sigma$,
+    \item[$\sigma$] -- odchylenie standardowe szumu (poziom zakłóceń).
+\end{description}
+Większa wartość parametru $\sigma$ oznacza silniejsze zakłócenie dodawane do obrazu. 
+Po dodaniu szumu wartości pikseli są przycinane zgodnie z parametrami \texttt{clamp\_min} oraz \texttt{clamp\_max}. Wartości mniejsze od -1 zastępowano wartością -1, natomiast wartości większe od 1 zastępowano wartością 1. Operacja ta zapobiegała pojawianiu się wartości spoza zakresu wykorzystywanego podczas trenowania modelu.
+
+
+% popraw to nizej w tak zeby najpierw opisac ze to z metody fgsm() i potem mniej wiecej ocb tam teoria
+Drugą metodą perturbacji jest metoda FGSM (ang. \textit{Fast Gradient Sign Method}). W przeciwieństwie do opisywanego wcześniej szumu Gaussa, FGSM nie jest perturbacją losową, lecz perturbacją adwersarialną wyznaczaną na podstawie gradientu funkcji straty względem obrazu wejściowego.
+\section{Metody wyjaśniania decyzji modeli}
+
+
+
+
 \section{Metryki oceny wyjaśnień}
 \section{Konfiguracja eksperymentów}
