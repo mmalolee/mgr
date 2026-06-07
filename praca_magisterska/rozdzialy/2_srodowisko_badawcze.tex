@@ -51,7 +51,20 @@ Po dodaniu szumu wartości pikseli są przycinane zgodnie z parametrami \texttt{
 
 
 % popraw to nizej w tak zeby najpierw opisac ze to z metody fgsm() i potem mniej wiecej ocb tam teoria
-Drugą metodą perturbacji jest metoda FGSM (ang. \textit{Fast Gradient Sign Method}). W przeciwieństwie do opisywanego wcześniej szumu Gaussa, FGSM nie jest perturbacją losową, lecz perturbacją adwersarialną wyznaczaną na podstawie gradientu funkcji straty względem obrazu wejściowego.
+Drugą metodą perturbacji jest metoda FGSM (ang. \textit{Fast Gradient Sign Method}), która jest zapewiana przez metodę \texttt{fgsm()}. W przeciwieństwie do opisywanego wcześniej szumu Gaussa, FGSM nie jest perturbacją losową, lecz perturbacją adwersarialną wyznaczaną na podstawie gradientu funkcji straty względem obrazu wejściowego. Atak implementowany jest zgodnie ze wzorem \ref{eq:fgsm}.
+\begin{equation} \label{eq:fgsm}
+    x_{adv} = x + \epsilon \cdot \operatorname{sign}(\nabla_x J(\theta, x, y))
+\end{equation}
+gdzie:
+\begin{description}
+    \item[$x$] -- wartość wejściowa piksela,
+    \item[$\epsilon$] -- parametr określający siłę perturbacji,
+    \item[$\nabla_x J(\theta, x, y)$] -- gradient funkcji kosztu względem wejścia $x$.
+\end{description}
+
+
+
+
 \section{Metody wyjaśniania decyzji modeli}
 
 
