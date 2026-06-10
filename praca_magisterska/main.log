@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.13)  10 JUN 2026 23:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.13)  11 JUN 2026 00:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -638,8 +638,9 @@ Underfull \hbox (badness 1968) in paragraph at lines 22--23
 \T1/ptm/m/n/12 do roz-miaru 224x224 pik-seli, na-st¦p-nie za-mie-niane na obiekty typu ten-sor. Ostat-nim
  []
 
+[4]
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 23.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 23.
@@ -665,9 +666,6 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 23.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
 Underfull \hbox (badness 1127) in paragraph at lines 35--37
 \T1/ptm/m/n/12 zbio-rze s¡ jed-no-ka-na-ªowe (skala sza-ro-±ci), ko-nieczne byªo do-da-nie do-dat-ko-wego kroku
  []
@@ -678,18 +676,23 @@ Underfull \hbox (badness 2894) in paragraph at lines 40--41
  []
 
 
-Underfull \hbox (badness 1990) in paragraph at lines 40--41
-\T1/ptm/m/n/12 oraz ewa-lu-acji mo-deli kla-sy-fi-ka-cyj-nych wy-ko-rzy-sty-wa-nych w ba-da-niach. Jej gªów-nym
+Underfull \hbox (badness 1622) in paragraph at lines 40--41
+\T1/ptm/m/n/12 im-ple-men-ta-cji mo-duªu \T1/cmtt/m/n/12 ModelTrainer\T1/ptm/m/n/12 , któ-rego za-da-niem byªo upo-rz¡d-ko-wa-nie pro-cesu
  []
 
 
-Underfull \hbox (badness 3895) in paragraph at lines 42--43
-\T1/ptm/m/n/12 ob-li-cze-nia, funk-cj¦ straty, opty-ma-li-za-tor oraz na-zwy klas wy-st¦-pu-j¡-cych w zbio-rze.
+Underfull \hbox (badness 3039) in paragraph at lines 42--43
+\T1/ptm/m/n/12 okre-±lano rów-nie» ±cie»k¦ za-pisu mo-delu na pod-sta-wie klasy \T1/cmtt/m/n/12 Paths \T1/ptm/m/n/12 oraz two-rzono
  []
 
 
-Underfull \hbox (badness 1122) in paragraph at lines 42--43
-\T1/ptm/m/n/12 s¡ wy-ko-rzy-sty-wane do oceny ja-ko-±ci pro-cesu ucze-nia. Po za-ko«-cze-niu tre-ningu mo-del
+Underfull \hbox (badness 1024) in paragraph at lines 42--43
+\T1/ptm/m/n/12 obiekt \T1/cmtt/m/n/12 TrainingConfig\T1/ptm/m/n/12 , z któ-rego po-bie-rano pa-ra-me-try ko-nieczne do prze-pro-wa-dze-nia
+ []
+
+
+Underfull \hbox (badness 1622) in paragraph at lines 42--43
+\T1/ptm/m/n/12 tre-ningu. Funk-cja straty zo-staªa zde-fi-nio-wana jako \T1/cmtt/m/n/12 CrossEntropyLoss\T1/ptm/m/n/12 , na-to-miast jako
  []
 
 
@@ -765,13 +768,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  14489 strings out of 477136
  273621 string characters out of 5813392
- 1860388 words of memory out of 6000000
+ 1861388 words of memory out of 6000000
  34555 multiletter control sequences out of 15000+600000
  540278 words of font info for 74 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 63i,6n,68p,1820b,1664s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 63i,6n,68p,2400b,1664s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (10 pages, 916813 bytes).
+Output written on main.pdf (10 pages, 917760 bytes).
 PDF statistics:
  89 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream

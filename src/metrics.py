@@ -12,7 +12,7 @@ class Metrics:
         return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b) + 1e-8)
 
     @staticmethod
-    def topk_iou(a, b, top_k_percent=0.10):
+    def topk_iou(a, b, top_k_percent):
         a = a.flatten()
         b = b.flatten()
 
