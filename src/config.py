@@ -50,5 +50,6 @@ class ExperimentConfig:
 @dataclass
 class TrainingConfig:
     batch_size: int = 64
-    epochs: int = 10
+    epochs: int = None
     learning_rate: float = 0.001
+    val_ratio: float = 0.1

@@ -1,14 +1,22 @@
 import torch
+import torch.nn as nn
 from sklearn.metrics import accuracy_score, classification_report
+
+from src.config import TrainingConfig
+from src.paths import Paths
 
 
 class ModelTrainer:
-    def __init__(self, model, device, criterion, optimizer, class_names=None):
+    def __init__(self, model, device, class_names):
         self.model = model
         self.device = device
-        self.criterion = criterion
-        self.optimizer = optimizer
         self.class_names = class_names
+        self.model_path = Paths().MODEL_DIR
+        self.training_config = TrainingConfig()
+        self.criterion = nn.CrossEntropyLoss()
+        self.optimizer = torch.optim.Adam(
+            model.parameters(), lr=self.training_config.learning_rate
+        )
 
         self.history = {
             "train_loss": [],
@@ -73,8 +81,8 @@ class ModelTrainer:
 
         return val_loss, val_acc
 
-    def fit(self, train_loader, val_loader, epochs):
-        for epoch in range(epochs):
+    def fit(self, train_loader, val_loader):
+        for epoch in range(self.training_config.epochs):
             train_loss, train_acc = self.train_one_epoch(train_loader)
             val_loss, val_acc = self.validate(val_loader)
 
@@ -83,7 +91,7 @@ class ModelTrainer:
             self.history["val_loss"].append(val_loss)
             self.history["val_acc"].append(val_acc)
 
-            print(f"Epoch {epoch + 1}/{epochs}")
+            print(f"Epoch {epoch + 1}/{self.training_config.epochs}")
             print(f"Train - Loss: {train_loss:.4f} Acc: {train_acc:.4f}")
             print(f"Val   - Loss: {val_loss:.4f} Acc: {val_acc:.4f}")
             print("-" * 25)
@@ -126,5 +134,6 @@ class ModelTrainer:
             "labels": all_labels,
         }
 
-    def save_model(self, path):
-        torch.save(self.model.state_dict(), path)
+    def save_model(self, model_name):
+        self.model_path.mkdir(exist_ok=True, parents=True)
+        torch.save(self.model.state_dict(), self.model_path / model_name)

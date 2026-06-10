@@ -2,12 +2,14 @@ import numpy as np
 import torch
 from captum.attr import IntegratedGradients, Occlusion
 
+from src.config import IGConfig, OcclusionConfig
+
 
 class IGExplainer:
-    def __init__(self, model, device, config):
+    def __init__(self, model, device):
         self.model = model
         self.device = device
-        self.config = config
+        self.ig_explainer_config = IGConfig()
         self.ig = IntegratedGradients(model)
 
     def explain(self, input_tensor, target_class):
@@ -15,14 +17,14 @@ class IGExplainer:
         input_tensor.requires_grad = True
         baseline = torch.full_like(
             input_tensor,
-            self.config.baseline_value,
+            self.ig_explainer_config.baseline_value,
         ).to(self.device)
 
         attr = self.ig.attribute(
             input_tensor,
             baselines=baseline,
             target=target_class,
-            n_steps=self.config.n_steps,
+            n_steps=self.ig_explainer_config.n_steps,
         )
 
         return self.process_raw_attribution(attr)
@@ -42,27 +44,31 @@ class IGExplainer:
 
 
 class OcclusionExplainer:
-    def __init__(self, model, device, config, dataset):
+    def __init__(self, model, device, dataset):
         self.model = model
         self.device = device
-        self.config = config
         self.dataset = dataset
+        self.occlusion_explainer_config = OcclusionConfig()
         self.occlusion = Occlusion(model)
 
     def explain(self, input_tensor, target_class):
         input_tensor = input_tensor.to(self.device)
         baseline = torch.full_like(
             input_tensor,
-            self.config.baseline_value,
+            self.occlusion_explainer_config.baseline_value,
         ).to(self.device)
 
         if self.dataset == "mnist":
-            strides = self.config.mnist_strides
-            sliding_window_shapes = self.config.mnist_sliding_window_shapes
+            strides = self.occlusion_explainer_config.mnist_strides
+            sliding_window_shapes = (
+                self.occlusion_explainer_config.mnist_sliding_window_shapes
+            )
 
         elif self.dataset == "cifar10":
-            strides = self.config.cifar10_strides
-            sliding_window_shapes = self.config.cifar10_sliding_window_shapes
+            strides = self.occlusion_explainer_config.cifar10_strides
+            sliding_window_shapes = (
+                self.occlusion_explainer_config.cifar10_sliding_window_shapes
+            )
 
         else:
             raise ValueError(f"Unknown dataset: {self.dataset}")

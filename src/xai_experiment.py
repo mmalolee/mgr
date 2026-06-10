@@ -1,23 +1,13 @@
 import pandas as pd
 import torch
 
+from src.config import ExperimentConfig
 from src.metrics import Metrics
+from src.perturbations import Perturbations
 
 
 class XAIExperiment:
-    def __init__(
-        self,
-        model,
-        device,
-        class_names,
-        clean_examples,
-        explainer,
-        perturbations,
-        metrics=Metrics(),
-        top_k_percent=0.10,
-        deletion_steps=20,
-        baseline_value=-1.0,
-    ):
+    def __init__(self, model, device, class_names, clean_examples, explainer):
         self.model = model
         self.device = device
         self.class_names = class_names
@@ -25,12 +15,10 @@ class XAIExperiment:
         self.selected_classes = sorted(clean_examples.keys())
 
         self.explainer = explainer
-        self.perturbations = perturbations
-        self.metrics = metrics
+        self.perturbations = Perturbations(self.model, self.device)
+        self.metrics = Metrics()
 
-        self.top_k_percent = top_k_percent
-        self.deletion_steps = deletion_steps
-        self.baseline_value = baseline_value
+        self.experiment_config = ExperimentConfig()
 
     def get_clean_tensor(self, class_id, to_device=True):
         tensor = self.clean_examples[class_id].unsqueeze(0)
@@ -98,7 +86,7 @@ class XAIExperiment:
                 iou = self.metrics.topk_iou(
                     clean_attr,
                     perturbed_attr,
-                    top_k_percent=self.top_k_percent,
+                    top_k_percent=self.experiment_config.top_k_percent,
                 )
 
                 results.append(
@@ -138,8 +126,8 @@ class XAIExperiment:
                 input_tensor=clean_tensor,
                 attribution_map=clean_attr,
                 target_class=class_id,
-                steps=self.deletion_steps,
-                baseline_value=self.baseline_value,
+                steps=self.experiment_config.deletion_steps,
+                baseline_value=self.experiment_config.baseline_value,
             )
 
             clean_cache[(class_id, example_idx)] = {
@@ -177,8 +165,8 @@ class XAIExperiment:
                     input_tensor=perturbed_tensor,
                     attribution_map=perturbed_attr,
                     target_class=class_id,
-                    steps=self.deletion_steps,
-                    baseline_value=self.baseline_value,
+                    steps=self.experiment_config.deletion_steps,
+                    baseline_value=self.experiment_config.baseline_value,
                 )
 
                 clean_data = clean_cache[(class_id, example_idx)]

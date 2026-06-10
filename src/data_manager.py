@@ -2,13 +2,14 @@ import torch
 from torch.utils.data import DataLoader, random_split
 from torchvision import datasets, transforms
 
+from src.config import TrainingConfig
 from src.paths import Paths
 
 
 class DataManager:
-    def __init__(self, root=Paths.PROJECT_ROOT):
-        self.root = root
-
+    def __init__(self):
+        self.data_path = Paths().DATA_DIR
+        self.training_config = TrainingConfig()
         self.class_names = {
             "mnist": {i: str(i) for i in range(10)},
             "cifar10": {
@@ -66,7 +67,7 @@ class DataManager:
 
         if dataset_name == "mnist":
             return datasets.MNIST(
-                root=self.root,
+                root=self.data_path,
                 train=train,
                 download=download,
                 transform=transform,
@@ -74,7 +75,7 @@ class DataManager:
 
         if dataset_name == "cifar10":
             return datasets.CIFAR10(
-                root=self.root,
+                root=self.data_path,
                 train=train,
                 download=download,
                 transform=transform,
@@ -85,7 +86,6 @@ class DataManager:
     def get_train_val_datasets(
         self,
         dataset_name,
-        val_ratio=0.1,
         download=True,
         seed=42,
     ):
@@ -95,7 +95,7 @@ class DataManager:
             download=download,
         )
 
-        val_size = int(len(full_train_dataset) * val_ratio)
+        val_size = int(len(full_train_dataset) * self.training_config.val_ratio)
         train_size = len(full_train_dataset) - val_size
 
         generator = torch.Generator().manual_seed(seed)
@@ -118,8 +118,6 @@ class DataManager:
     def get_data_loaders(
         self,
         dataset_name,
-        batch_size=64,
-        val_ratio=0.1,
         num_workers=4,
         pin_memory=True,
         download=True,
@@ -127,20 +125,18 @@ class DataManager:
     ):
         train_dataset, val_dataset = self.get_train_val_datasets(
             dataset_name=dataset_name,
-            val_ratio=val_ratio,
             download=download,
             seed=seed,
         )
 
         test_dataset = self.get_test_dataset(
             dataset_name=dataset_name,
-            train=False,
             download=download,
         )
 
         train_loader = DataLoader(
             train_dataset,
-            batch_size=batch_size,
+            batch_size=self.training_config.batch_size,
             shuffle=True,
             num_workers=num_workers,
             pin_memory=pin_memory,
@@ -148,7 +144,7 @@ class DataManager:
 
         val_loader = DataLoader(
             val_dataset,
-            batch_size=batch_size,
+            batch_size=self.training_config.batch_size,
             shuffle=False,
             num_workers=num_workers,
             pin_memory=pin_memory,
@@ -156,7 +152,7 @@ class DataManager:
 
         test_loader = DataLoader(
             test_dataset,
-            batch_size=batch_size,
+            batch_size=self.training_config.batch_size,
             shuffle=False,
             num_workers=num_workers,
             pin_memory=pin_memory,

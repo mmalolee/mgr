@@ -3,11 +3,11 @@ import torch.nn.functional as F
 
 
 class Perturbations:
-    def __init__(self, model, device, clamp_min=-1.0, clamp_max=1.0):
+    def __init__(self, model, device):
         self.model = model
         self.device = device
-        self.clamp_min = clamp_min
-        self.clamp_max = clamp_max
+        self.clamp_min = -1.0
+        self.clamp_max = 1.0
 
     def gaussian(self, input_tensor, sigma):
         x = input_tensor.clone().detach().to(self.device)
