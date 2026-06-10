@@ -1,11 +1,22 @@
 \chapter{Środowisko badawcze}
 
-W niniejszym rozdziale przedstawiono wszystkie elementy środowiska badawczego, które zostały wykorzystane w przeprowadzonych eksperymentach. Opisano przygotowanie danych, modeli klasyfikacyjnych, metod wyjaśniania decyzji modeli, metod generowania perturbacji oraz metryki oceny wyjaśnień. W całym eksperymencie zdecydowano się na podejście obiektowe i modułowe, co oznacza, że każdy z elementów środowiska badawczego został przygotowany w sposób niezależny, a następnie połączony w jedną całość. Takie podejście pozwoliło na elastyczność i możliwość łatwej modyfikacji poszczególnych elementów w przypadku potrzeby modyfikacji parametrów eksperymentu lub wprowadzenia nowych metod wyjaśniania decyzji modeli. W kolejnych sekcjach przedstawione zostaną szczegółowe informacje dotyczące każdego z elementów środowiska badawczego, co pozwoli na pełne zrozumienie procesu przeprowadzonych eksperymentów oraz interpretację uzyskanych wyników.
+W niniejszym rozdziale przedstawiono wszystkie elementy środowiska badawczego, które zostały wykorzystane w przeprowadzonych eksperymentach. Opisano przygotowanie konfiguracji, danych, modeli klasyfikacyjnych, metod wyjaśniania decyzji modeli, metod generowania perturbacji oraz metryki oceny wyjaśnień. W całym eksperymencie zdecydowano się na podejście obiektowe i modułowe, co oznacza, że każdy z elementów środowiska badawczego został przygotowany w sposób niezależny, a następnie połączony w jedną całość. Takie podejście pozwoliło na elastyczność i możliwość łatwej modyfikacji poszczególnych elementów w przypadku potrzeby modyfikacji parametrów eksperymentu lub wprowadzenia nowych metod wyjaśniania decyzji modeli. W kolejnych sekcjach przedstawiono szczegółowe informacje dotyczące każdego z elementów środowiska badawczego, co pozwoli na pełne zrozumienie procesu przeprowadzonych eksperymentów oraz interpretację uzyskanych wyników.
+
+\section{Przygotowanie konfiguracji, ścieżek oraz funkcji pomocniczych}
+\label{sec:config_sciezki_utils}
+
+Pracę nad środowiskiem badawczym rozpoczęto od zaimplementowania zestawu klas konfiguracyjnych oraz zestawu funkcji pomocniczych, których zadaniem było uporządkowanie parametrów eksperymentów i ograniczenie powtarzania tych samych fragmentów kodu w różnych częściach programu.
+
+Do przechowywania parametrów wykorzystano klasy danych oznaczone dekoratorem \texttt{@dataclass}. Klasa \texttt{IGConfig} zawierała ustawienia metody Integrated Gradients, takie jak liczba kroków całkowania \texttt{n\_steps} oraz wartość bazowa \texttt{baseline\_value}. Wartość bazowa była wykorzystywana podczas tworzenia tensora odniesienia dla analizowanego obrazu. Klasa \texttt{OcclusionConfig} przechowywała parametry metody Occlusion. Zawierała osobne ustawienia dla zbiorów MNIST oraz CIFAR-10, obejmujące krok przesuwania okna \texttt{strides} oraz rozmiar okna okluzji \texttt{sliding\_window\_shapes}. Rozdzielenie tych parametrów pozwalało dostosować działanie metody do charakterystyki analizowanego zbioru danych. W klasie tej zdefiniowano również wartość bazową wykorzystywaną podczas zastępowania fragmentów obrazu.
+
+Klasa \texttt{ExperimentConfig} grupowała parametry związane z przebiegiem eksperymentów. Obejmowała wartości odchylenia standardowego szumu Gaussa, wartości parametru \texttt{epsilon} dla ataku FGSM, procent pikseli uwzględnianych w metryce Top-K IoU, liczbę kroków w procedurze Deletion AUC oraz wartość bazową stosowaną podczas usuwania pikseli. Dzięki temu wszystkie najważniejsze parametry eksperymentalne były zebrane w jednym miejscu i mogły być łatwo modyfikowane bez ingerencji w kod poszczególnych klas. Klasa \texttt{TrainingConfig} zawierała podstawowe ustawienia procesu uczenia modelu, takie jak rozmiar batcha, liczba epok, współczynnik uczenia oraz udział zbioru walidacyjnego. Parametry te były wykorzystywane podczas przygotowywania danych oraz trenowania modeli klasyfikacyjnych. W projekcie zdefiniowano również klasę \texttt{Paths}, której zadaniem było przechowywanie ścieżek do najważniejszych katalogów projektu. Na podstawie lokalizacji pliku wyznaczano katalog główny projektu, a następnie katalog danych oraz katalog przeznaczony do zapisu modeli.
+
+Dodatkowe funkcje pomocnicze umieszczono w pliku \texttt{utils.py}. Funkcja \texttt{get\_device()} automatycznie wybierała urządzenie obliczeniowe, zwracając GPU w przypadku dostępności technologii CUDA albo CPU w przeciwnym przypadku. Funkcja \texttt{tensor\_to\_img()} służyła do przekształcania tensora obrazu do postaci możliwej do wyświetlenia. W ramach tej operacji tensor był przenoszony na CPU, konwertowany do tablicy NumPy, a następnie przekształcany z zakresu wartości ([-1,1]) do zakresu ([0,1]). Funkcja \texttt{plot\_image()} ujednolicała sposób wyświetlania obrazów i map atrybucji. Przyjmowała obiekt osi wykresu, obraz, tytuł oraz opcjonalne parametry mapy kolorów i zakresu wartości. Dzięki temu możliwe było stosowanie spójnego sposobu wizualizacji w różnych częściach eksperymentu. W pliku pomocniczym zdefiniowano także funkcję \texttt{initialize\_resnet18()}, która tworzyła model ResNet18. W zależności od przekazanego parametru model mógł zostać zainicjalizowany z wagami wstępnie wytrenowanymi lub bez nich. Ostatnia warstwa była zastępowana nową warstwą, której liczba wyjść odpowiadała liczbie klas analizowanego zbioru danych. Funkcja \texttt{load\_model\_weights()} umożliwiała wczytanie zapisanych wag modelu, przeniesienie modelu na odpowiednie urządzenie oraz przełączenie go w tryb ewaluacji.
 
 \section{Przygotowanie danych oraz procesu trenowania}
 \label{sec:dane_i_trening}
 
-Tworzenie środowiska badawczego rozpoczęto od przygotowania klasy \texttt{DataManager}, która służyła do ujednolicenia procesu przygotowania danych wykorzystywanych w badaniach. Jej głównym zadaniem było zapewnienie wspólnego interfejsu do obsługi zbioru MNIST oraz CIFAR-10, obejmującego pobieranie danych, ich wstępne przetwarzanie, wyodrębnienie ze zbioru treningowego zbioru walidacyjnego, pobranie zbioru testowego oraz obiektów Data Loader, które umożliwiały iterację po danych w trakcie trenowania modeli. Dzięki temu możliwe było łatwe zarządzanie danymi oraz zapewnienie spójności w procesie przygotowania danych dla eksperymentów.
+Następnie przystąpiono do przygotowania klasy \texttt{DataManager}, która służyła do ujednolicenia procesu przygotowania danych wykorzystywanych w badaniach. Jej głównym zadaniem było zapewnienie wspólnego interfejsu do obsługi zbioru MNIST oraz CIFAR-10, obejmującego pobieranie danych, ich wstępne przetwarzanie, wyodrębnienie ze zbioru treningowego zbioru walidacyjnego, pobranie zbioru testowego oraz obiektów Data Loader, które umożliwiały iterację po danych w trakcie trenowania modeli. Dzięki temu możliwe było łatwe zarządzanie danymi oraz zapewnienie spójności w procesie przygotowania danych dla eksperymentów.
 Klasa przechowuje również mapowanie indeksów klas na ich nazwy, co ułatwia interpretację w przypadku zbioru CIFAR-10, gdzie indeksy liczbowe reprezentują różne klasy obrazów (np. 0 - samolot, 1 - samochód itd.). Metoda \texttt{get\_class\_names()} umożliwia pobranie słownika mapującego klasy dla podanego zbioru. 
 
 Istotnym elementem klasy \texttt{DataManager} jest metoda \texttt{get\_transform()}, która definiuje sposób przetwarzania obrazów w zależności od zbioru danych. Obrazy są przekształcane do rozmiaru 224x224 pikseli, następnie zamieniane na obiekty typu tensor. Ostatnim etapem przygotowywania danych dla modelu jest normalizacja. W badaniach została ona przeprowadzona zgodnie ze wzorem \ref{eq:x_norm}. 
@@ -50,17 +61,17 @@ Większa wartość parametru $\sigma$ oznacza silniejsze zakłócenie dodawane d
 Po dodaniu szumu wartości pikseli są przycinane zgodnie z parametrami \texttt{clamp\_min} oraz \texttt{clamp\_max}. Wartości mniejsze od -1 zastępowano wartością -1, natomiast wartości większe od 1 zastępowano wartością 1. Operacja ta zapobiegała pojawianiu się wartości spoza zakresu wykorzystywanego podczas trenowania modelu.
 
 
-% popraw to nizej w tak zeby najpierw opisac ze to z metody fgsm() i potem mniej wiecej ocb tam teoria
-Drugą metodą perturbacji jest metoda FGSM (ang. \textit{Fast Gradient Sign Method}), która jest zapewiana przez metodę \texttt{fgsm()}. W przeciwieństwie do opisywanego wcześniej szumu Gaussa, FGSM nie jest perturbacją losową, lecz perturbacją adwersarialną wyznaczaną na podstawie gradientu funkcji straty względem obrazu wejściowego. Atak implementowany jest zgodnie ze wzorem \ref{eq:fgsm}.
-\begin{equation} \label{eq:fgsm}
-    x_{adv} = x + \epsilon \cdot \operatorname{sign}(\nabla_x J(\theta, x, y))
-\end{equation}
-gdzie:
-\begin{description}
-    \item[$x$] -- wartość wejściowa piksela,
-    \item[$\epsilon$] -- parametr określający siłę perturbacji,
-    \item[$\nabla_x J(\theta, x, y)$] -- gradient funkcji kosztu względem wejścia $x$.
-\end{description}
+/% popraw to nizej w tak zeby najpierw opisac ze to z metody fgsm() i potem mniej wiecej ocb tam teoria
+%Drugą metodą perturbacji jest metoda FGSM (ang. \textit{Fast Gradient Sign Method}), która jest zapewiana przez metodę \texttt{fgsm()}. W przeciwieństwie do %opisywanego wcześniej szumu Gaussa, FGSM nie jest perturbacją losową, lecz perturbacją adwersarialną wyznaczaną na podstawie gradientu funkcji straty %względem obrazu wejściowego. Atak implementowany jest zgodnie ze wzorem \ref{eq:fgsm}.
+%\begin{equation} \label{eq:fgsm}
+ %   x_{adv} = x + \epsilon \cdot \operatorname{sign}(\nabla_x J(\theta, x, y))
+%\end{equation}
+%gdzie:
+%\begin{description}
+   % \item[$x$] -- wartość wejściowa piksela,
+  %  \item[$\epsilon$] -- parametr określający siłę perturbacji,
+ %   \item[$\nabla_x J(\theta, x, y)$] -- gradient funkcji kosztu względem wejścia $x$.
+%\end{description}
 
 
 
