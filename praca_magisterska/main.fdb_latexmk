@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1781131461.39059 -1
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1781133206.23549 -1
   "bibliografia.bib" 1781128087.93111 252 a688a0eb6c9cfc7560d2314ba5529bab ""
-  "main.bcf" 1781131461.31051 108126 88ff53158eefd6d7712fe3bf901bd679 "pdflatex"
+  "main.bcf" 1781133206.15959 108126 88ff53158eefd6d7712fe3bf901bd679 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1781131460.73145 "/home/mikolajmalolepszy/Desktop/Projects/mgr/praca_magisterska/main.tex" "main.pdf" "main" 1781131461.39092 0
+["pdflatex"] 1781133205.56782 "/home/mikolajmalolepszy/Desktop/Projects/mgr/praca_magisterska/main.tex" "main.pdf" "main" 1781133206.23577 0
   "/home/mikolajmalolepszy/Desktop/Projects/mgr/praca_magisterska/main.tex" 1781128087.9372 2332 f9ee6e3c800d383a9dc7aa414e389b40 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1775001600 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
@@ -35,7 +35,6 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb" 1215737283 167085 68de377d2744a68a88fa40a1f610615a ""
-  "/usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb" 1229303445 16077 4737ac34f0fb5608550f3780a0202c22 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb" 1136849748 33709 b09d2e140b7e807d3a97058263ab6693 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 811d6c62865936705a31c797a1d5dada ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb" 1136849748 46026 6dab18b61c907687b520c72847215a68 ""
@@ -117,19 +116,19 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1776098678 7572858 3cadb18b2a6595a521411c0672f7109c ""
   "imgs/1_mnist.png" 1781128087.93111 80544 42d58c4ee8bc6456be87d4b0454934f6 ""
   "imgs/2_cifar.png" 1781128087.93311 315491 2aab676f2522948ac979b1b537233cd9 ""
-  "main.aux" 1781131461.30722 448 f04d5beddb389773f0dc76e69ac8d682 "pdflatex"
+  "main.aux" 1781133206.15527 448 f04d5beddb389773f0dc76e69ac8d682 "pdflatex"
   "main.bbl" 1781128208.83204 466 76d65a242ec496c9b4361af646ff12cb "biber main"
-  "main.run.xml" 1781131461.31222 2353 9e28d0de1e0153ee76b59707e653aa31 "pdflatex"
+  "main.run.xml" 1781133206.16123 2353 9e28d0de1e0153ee76b59707e653aa31 "pdflatex"
   "main.tex" 1781128087.9372 2332 f9ee6e3c800d383a9dc7aa414e389b40 ""
-  "rozdzialy/1_zbiory_danych.aux" 1781131461.27745 4698 bb3e56ca76e1a0789e98d1fbea2d1f27 "pdflatex"
+  "rozdzialy/1_zbiory_danych.aux" 1781133206.1206 4698 bb3e56ca76e1a0789e98d1fbea2d1f27 "pdflatex"
   "rozdzialy/1_zbiory_danych.tex" 1781128087.93818 3489 0b227c93b7c28cfe3d8bc43f8e14f161 ""
-  "rozdzialy/2_srodowisko_badawcze.aux" 1781131461.29928 4984 91c72cc9c0b348716c0873aca080c08e "pdflatex"
-  "rozdzialy/2_srodowisko_badawcze.tex" 1781131459.88995 14790 795bb7f05d7c789b147c6fa4364d1d93 ""
-  "rozdzialy/3_badania_mnist.aux" 1781131461.30241 4568 fb2f6e5b9cce19f476bfca844ed974d2 "pdflatex"
+  "rozdzialy/2_srodowisko_badawcze.aux" 1781133206.14595 4948 6416590afefb8e1d14308d8799693122 "pdflatex"
+  "rozdzialy/2_srodowisko_badawcze.tex" 1781133205.36526 14225 807c6055df0f2ed8561eb2cf5dcb2e46 ""
+  "rozdzialy/3_badania_mnist.aux" 1781133206.15059 4568 fb2f6e5b9cce19f476bfca844ed974d2 "pdflatex"
   "rozdzialy/3_badania_mnist.tex" 1781128087.93907 259 1cdc5d9656de0a83cc8577e5d033e76e ""
-  "rozdzialy/4_badania_cifar.aux" 1781131461.30551 4572 9a5f03e56336b8ceffac15858f469f9e "pdflatex"
+  "rozdzialy/4_badania_cifar.aux" 1781133206.15327 4572 9a5f03e56336b8ceffac15858f469f9e "pdflatex"
   "rozdzialy/4_badania_cifar.tex" 1781128087.93933 263 f3c67cb427349842d5976fa83fc923ae ""
-  "rozdzialy/5_podsumowanie.aux" 1781131461.30633 4046 5aa049230e59352c1ec9324349cc47b1 "pdflatex"
+  "rozdzialy/5_podsumowanie.aux" 1781133206.15527 4046 5aa049230e59352c1ec9324349cc47b1 "pdflatex"
   "rozdzialy/5_podsumowanie.tex" 1781128087.93958 50 65f9a98a4731aafb077edaf2db0ece72 ""
   (generated)
   "main.aux"
