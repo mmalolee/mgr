@@ -1,8 +1,30 @@
 \chapter{Trening modeli oraz przebieg badań}
 
+W niniejszym rozdziale przedstawiono przebieg procesu trenowania modeli predykcyjnych użytych w badaniach. Opisano również konfigurację oraz przebieg całych eksperymentów dla rozważanych zbiorów danych.
+
 \section{Trening modeli klasyfikacyjnych}
 \label{sec:trening}
 
+Przygotowanie badań rozpoczeto od wytrenowania modelu klasyfikacyjnego dla zbioru MNIST. Zdecydowano się na Wykorzystanie architektury ResNet18 z wagami wstępnie wytrenowanymi, a ostatnią warstwę klasyfikacyjną zastąpiono nową warstwą w pełni połączoną, dostosowaną do liczby klas występujących w danym zbiorze. W przypadku zbiorów MNIST oraz CIFAR-10 liczba klas wynosiła 10.
+
+Proces dostrajania zrealizowano z wykorzystaniem wcześniej opisanej w sekcji \ref{sec:dane_i_trening} klasy \texttt{ModelTrainer}. Dla obu zbiorów zastosowano ten sam schemat treningu, obejmujący uczenie na zbiorze treningowym oraz kontrolę jakości na zbiorze walidacyjnym dla ostatniej epoki treningowej. Dodatkowo w tabeli zamieszczono również ocenę na zbiorze testowym. Różnice pomiędzy eksperymentami dotyczyły wykorzystywanego zbioru danych oraz liczby epok dostrajania modelu (dla zbioru MNIST liczba epok równa 3, dla CIFAR-10 liczba epok wynosiła 7). Większa liczba epok dla CIFAR-10 wynikała z większej złożoności danych.
+Dla każdego zbioru monitorowano wartość funkcji straty oraz dokładność klasyfikacji na zbiorze treningowym i walidacyjnym. Po zakończeniu dostrajania modele oceniono na zbiorach testowych. Wartości metryk dla rozważanych zbiorów przedstawiono w tabeli \ref{tab:metryki_dla_treningu}.
+
+\begin{table}[H]
+\centering
+\caption{Zestawienie wartości dokładności dla zbioru MNIST oraz CIFAR-10 dla wszystkich etapów treningu}
+\label{tab:metryki_dla_treningu}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Zbiór danych} & \textbf{Dokładność treningowa} & \textbf{Dokładność walidacji} & \textbf{Dokładność testowa} \\
+\midrule
+MNIST    &  0.9915 & 0.9938 & 0.9937 \\
+CIFAR-10 &  0.9707 & 0.8862 & 0.8806 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Uzyskane wyniki wskazują, że oba modele osiągnęły skuteczność wystarczającą do dalszych badań nad stabilnością metod wyjaśniania. W przypadku zbioru MNIST dokładność na zbiorach treningowym, walidacyjnym i testowym była bardzo zbliżona oraz przekraczała 99\%. Dla zbioru CIFAR-10 uzyskano niższą dokładność niż dla MNIST, co było oczekiwane ze względu na większą złożoność obrazów naturalnych oraz większą różnorodność cech wizualnych. Widoczna różnica pomiędzy dokładnością treningową a walidacyjną i testową wskazuje, że zadanie klasyfikacji było trudniejsze, a model w większym stopniu dopasował się do danych treningowych. Mimo to dokładność testowa na poziomie 88\% została uznana za wystarczającą do przeprowadzenia dalszych eksperymentów.
 
 \section{Konfiguracja i przebieg eksperymentów}
-\label{sec:kondiguracja_i_przebieg_eksperymentow}
+\label{sec:konfiguracja_i_przebieg_eksperymentow}

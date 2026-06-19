@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1781887734.84823 -1
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1781898255.63328 -1
   "bibliografia.bib" 1781128087.93111 252 a688a0eb6c9cfc7560d2314ba5529bab ""
-  "main.bcf" 1781887734.76321 108126 88ff53158eefd6d7712fe3bf901bd679 "pdflatex"
+  "main.bcf" 1781898255.54721 108126 88ff53158eefd6d7712fe3bf901bd679 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1781887734.16431 "/home/mikolajmalolepszy/Desktop/Projects/mgr/praca_magisterska/main.tex" "main.pdf" "main" 1781887734.84852 0
-  "/home/mikolajmalolepszy/Desktop/Projects/mgr/praca_magisterska/main.tex" 1781887733.31077 2397 19068d1cb845ed2dd4ac41675b5ab00e ""
+["pdflatex"] 1781898254.93599 "/home/mikolajmalolepszy/Desktop/Projects/mgr/praca_magisterska/main.tex" "main.pdf" "main" 1781898255.63356 0
+  "/home/mikolajmalolepszy/Desktop/Projects/mgr/praca_magisterska/main.tex" 1781892654.19256 2419 cf8564b8de42a842a86499307fe8d4de ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1775001600 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -73,6 +73,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def" 1711143581 32761 18d14e3b502c120f79b2184de4e21d14 ""
   "/usr/share/texlive/texmf-dist/tex/latex/biblatex/cbx/verbose-trad1.cbx" 1566680006 9091 3e8501489ee8076994adeb17fbc1c5ed ""
   "/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/polish.lbx" 1711143581 32790 5985f3c48c27f3b3cb5588a5e30f0509 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty" 1579038678 6078 f1cb470c9199e7110a27851508ed7a5c ""
   "/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty" 1678653221 55778 14d5c99aa26410e440820bb9ea5b8b3a ""
   "/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty" 1678653221 71836 1a735454ad10692452eb2f2fc37f3865 ""
   "/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty" 1645391520 7418 021d7c4eb11bde94592761855a3d046e ""
@@ -116,21 +117,21 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1776098678 7572858 3cadb18b2a6595a521411c0672f7109c ""
   "imgs/1_mnist.png" 1781128087.93111 80544 42d58c4ee8bc6456be87d4b0454934f6 ""
   "imgs/2_cifar.png" 1781128087.93311 315491 2aab676f2522948ac979b1b537233cd9 ""
-  "main.aux" 1781887734.75883 516 0bb3472c7ed050ecf12d68018c853b82 "pdflatex"
+  "main.aux" 1781898255.54278 516 908c981e13c518f4e617da500695cf42 "pdflatex"
   "main.bbl" 1781128208.83204 466 76d65a242ec496c9b4361af646ff12cb "biber main"
-  "main.run.xml" 1781887734.76489 2353 9e28d0de1e0153ee76b59707e653aa31 "pdflatex"
-  "main.tex" 1781887733.31077 2397 19068d1cb845ed2dd4ac41675b5ab00e ""
-  "rozdzialy/1_zbiory_danych.aux" 1781887734.71476 4698 bb3e56ca76e1a0789e98d1fbea2d1f27 "pdflatex"
+  "main.run.xml" 1781898255.54881 2353 9e28d0de1e0153ee76b59707e653aa31 "pdflatex"
+  "main.tex" 1781892654.19256 2419 cf8564b8de42a842a86499307fe8d4de ""
+  "rozdzialy/1_zbiory_danych.aux" 1781898255.50058 4698 bb3e56ca76e1a0789e98d1fbea2d1f27 "pdflatex"
   "rozdzialy/1_zbiory_danych.tex" 1781128087.93818 3489 0b227c93b7c28cfe3d8bc43f8e14f161 ""
-  "rozdzialy/2_srodowisko_badawcze.aux" 1781887734.75026 5163 6a2f3ff80cb2511775b74c1ea9a02a2e "pdflatex"
+  "rozdzialy/2_srodowisko_badawcze.aux" 1781898255.53202 5163 6a2f3ff80cb2511775b74c1ea9a02a2e "pdflatex"
   "rozdzialy/2_srodowisko_badawcze.tex" 1781887066.58679 24925 92b5b9e8dc0b3f905279a46632549743 ""
-  "rozdzialy/3_trening_modeli_przebieg_badan.aux" 1781887734.75183 4407 bf5350e242a12f7ebdc88ac23e6f0a13 "pdflatex"
-  "rozdzialy/3_trening_modeli_przebieg_badan.tex" 1781887356.16114 209 a7b460d6cf5dbf1bc37db9625895dba1 ""
-  "rozdzialy/4_analiza_badań_mnist.aux" 1781887734.75407 4040 de7efe7f1cc4f0c68b544a6db41ba599 "pdflatex"
+  "rozdzialy/3_trening_modeli_przebieg_badan.aux" 1781898255.53771 4664 1f2cc71e9ad41ddf7aed01e20f0e1988 "pdflatex"
+  "rozdzialy/3_trening_modeli_przebieg_badan.tex" 1781898254.74186 3031 4886a2cf0f957fb3d2b7e94e256d4b36 ""
+  "rozdzialy/4_analiza_badań_mnist.aux" 1781898255.53878 4040 0cdd4e74da1a3c0c771aa729d3ec2e66 "pdflatex"
   "rozdzialy/4_analiza_badań_mnist.tex" 1781887589.59289 37 800bdc7ad954fcb3e9468e2bacd7497d ""
-  "rozdzialy/5_analiza_badan_cifar.aux" 1781887734.75623 4039 1de2f40a6bf6a85db616de5603db3bd2 "pdflatex"
+  "rozdzialy/5_analiza_badan_cifar.aux" 1781898255.54078 4039 a5474399747e674adb405341f442459c "pdflatex"
   "rozdzialy/5_analiza_badan_cifar.tex" 1781887591.99979 37 32f2cdb1496f69076ce4c79054885a07 ""
-  "rozdzialy/6_podsumowanie.aux" 1781887734.75883 4042 7991b594e3e38aa04171f5aa961b03fa "pdflatex"
+  "rozdzialy/6_podsumowanie.aux" 1781898255.54278 4042 521414dc4533e6cb4ee6c7b1b7318c13 "pdflatex"
   "rozdzialy/6_podsumowanie.tex" 1781887597.10034 46 96051177764cb26a7bd4a429fab9e6ea ""
   (generated)
   "main.aux"
