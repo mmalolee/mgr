@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1781960473.61222 -1
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1781961833.73372 -1
   "bibliografia.bib" 1781128087.93111 252 a688a0eb6c9cfc7560d2314ba5529bab ""
-  "main.bcf" 1781960473.52472 108126 88ff53158eefd6d7712fe3bf901bd679 "pdflatex"
+  "main.bcf" 1781961833.64476 108126 88ff53158eefd6d7712fe3bf901bd679 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1781960472.91695 "/home/mikolajmalolepszy/Desktop/Projects/mgr/praca_magisterska/main.tex" "main.pdf" "main" 1781960473.61251 0
+["pdflatex"] 1781961833.04452 "/home/mikolajmalolepszy/Desktop/Projects/mgr/praca_magisterska/main.tex" "main.pdf" "main" 1781961833.734 0
   "/home/mikolajmalolepszy/Desktop/Projects/mgr/praca_magisterska/main.tex" 1781892654.19256 2419 cf8564b8de42a842a86499307fe8d4de ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1775001600 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
@@ -117,22 +117,22 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1776098678 7572858 3cadb18b2a6595a521411c0672f7109c ""
   "imgs/1_mnist.png" 1781128087.93111 80544 42d58c4ee8bc6456be87d4b0454934f6 ""
   "imgs/2_cifar.png" 1781128087.93311 315491 2aab676f2522948ac979b1b537233cd9 ""
-  "main.aux" 1781960473.51972 516 caaa00f6f571466df226edbef411c28c "pdflatex"
+  "main.aux" 1781961833.64076 516 caaa00f6f571466df226edbef411c28c "pdflatex"
   "main.bbl" 1781128208.83204 466 76d65a242ec496c9b4361af646ff12cb "biber main"
-  "main.run.xml" 1781960473.5261 2353 9e28d0de1e0153ee76b59707e653aa31 "pdflatex"
+  "main.run.xml" 1781961833.64612 2353 9e28d0de1e0153ee76b59707e653aa31 "pdflatex"
   "main.tex" 1781892654.19256 2419 cf8564b8de42a842a86499307fe8d4de ""
-  "rozdzialy/1_zbiory_danych.aux" 1781960473.4715 4698 bb3e56ca76e1a0789e98d1fbea2d1f27 "pdflatex"
+  "rozdzialy/1_zbiory_danych.aux" 1781961833.58786 4698 bb3e56ca76e1a0789e98d1fbea2d1f27 "pdflatex"
   "rozdzialy/1_zbiory_danych.tex" 1781128087.93818 3489 0b227c93b7c28cfe3d8bc43f8e14f161 ""
-  "rozdzialy/2_srodowisko_badawcze.aux" 1781960473.50387 5163 6a2f3ff80cb2511775b74c1ea9a02a2e "pdflatex"
+  "rozdzialy/2_srodowisko_badawcze.aux" 1781961833.62094 5163 6a2f3ff80cb2511775b74c1ea9a02a2e "pdflatex"
   "rozdzialy/2_srodowisko_badawcze.tex" 1781887066.58679 24925 92b5b9e8dc0b3f905279a46632549743 ""
-  "rozdzialy/3_trening_modeli_przebieg_badan.aux" 1781960473.51372 4664 471f65dbde1ad74f106d23fc1c914c1b "pdflatex"
-  "rozdzialy/3_trening_modeli_przebieg_badan.tex" 1781960472.71794 7711 e7bcbdbe7010d71b93770a707fcf3204 ""
-  "rozdzialy/4_analiza_badań_mnist.aux" 1781960473.51572 4040 869cd40d900c833fbbb2d6e18540f930 "pdflatex"
-  "rozdzialy/4_analiza_badań_mnist.tex" 1781887589.59289 37 800bdc7ad954fcb3e9468e2bacd7497d ""
-  "rozdzialy/5_analiza_badan_cifar.aux" 1781960473.51772 4039 9f30bb34bf928c2c27d3926d807505b5 "pdflatex"
-  "rozdzialy/5_analiza_badan_cifar.tex" 1781887591.99979 37 32f2cdb1496f69076ce4c79054885a07 ""
-  "rozdzialy/6_podsumowanie.aux" 1781960473.51972 4042 15b9a9543fefe2137c6871332e0105e0 "pdflatex"
-  "rozdzialy/6_podsumowanie.tex" 1781887597.10034 46 96051177764cb26a7bd4a429fab9e6ea ""
+  "rozdzialy/3_trening_modeli_przebieg_badan.aux" 1781961833.63209 4664 471f65dbde1ad74f106d23fc1c914c1b "pdflatex"
+  "rozdzialy/3_trening_modeli_przebieg_badan.tex" 1781960697.38462 7719 1b05a779b253e52496699b454e7c2c31 ""
+  "rozdzialy/4_analiza_badań_mnist.aux" 1781961833.63548 4880 efb18e523d54f8534bcc3816e345590d "pdflatex"
+  "rozdzialy/4_analiza_badań_mnist.tex" 1781961787.66792 504 f0dfdbef31d9297b9fe321f829511d57 ""
+  "rozdzialy/5_analiza_badan_cifar.aux" 1781961833.63887 4881 f2cba99bc57bb578e4192fe0c65edc5a "pdflatex"
+  "rozdzialy/5_analiza_badan_cifar.tex" 1781961820.98053 506 64d2fb9ea872e616067e2777074c0dc3 ""
+  "rozdzialy/6_podsumowanie.aux" 1781961833.63976 4035 7d2d9aebba41af0b68159c943b705bf8 "pdflatex"
+  "rozdzialy/6_podsumowanie.tex" 1781961832.14568 40 3eead77bb16dc8f8f0ed9eae7691a3f2 ""
   (generated)
   "main.aux"
   "main.bcf"
