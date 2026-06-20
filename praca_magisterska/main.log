@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.13)  19 JUN 2026 21:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.13)  20 JUN 2026 15:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -928,12 +928,47 @@ Underfull \hbox (badness 2418) in paragraph at lines 8--9
 
 
 
-]) [12]
+]
+Underfull \hbox (badness 10000) in paragraph at lines 32--33
+\T1/ptm/m/n/12 Po przy-go-to-wa-niu i oce-nie mo-deli kla-sy-fi-ka-cyj-nych przy-st¡-piono do wªa-±ci-wych
+ []
+
+
+Underfull \hbox (badness 6825) in paragraph at lines 32--33
+\T1/ptm/m/n/12 eks-pe-ry-men-tów zwi¡-za-nych z ana-liz¡ sta-bil-no-±ci me-tod wy-ja-±nia-nia. Eks-pe-ry-menty
+ []
+
+
+Underfull \hbox (badness 4739) in paragraph at lines 32--33
+\T1/ptm/m/n/12 prze-pro-wa-dzono od-dziel-nie dla zbio-rów MNIST oraz CIFAR-10, a dla ka»-dego z
+ []
+
+
+Underfull \hbox (badness 1622) in paragraph at lines 34--36
+\T1/ptm/m/n/12 kosztu ob-li-cze-nio-wego ge-ne-ro-wa-nia map atry-bu-cji dla da-nych na-tu-ral-nych. Do-dat-kowo
+ []
+
+
+Underfull \hbox (badness 1087) in paragraph at lines 37--39
+\T1/ptm/m/n/12 uzy-skane przed i po mo-dy-fi-ka-cji ob-razu wej-±cio-wego. Dla szumu Gaussa ana-li-zo-wano
+ []
+
+[12])
+Underfull \hbox (badness 5519) in paragraph at lines 42--54
+[]\T1/ptm/m/n/12 Wyniki po-szcze-gól-nych eks-pe-ry-men-tów za-pi-sy-wano w po-staci ta-be-la-rycz-nej. W
+ []
+
+
+Underfull \hbox (badness 3547) in paragraph at lines 42--54
+\T1/ptm/m/n/12 po-do-bie«-stwa co-si-nu-so-wego oraz Top-K IoU, a tak»e od-po-wia-da-j¡ce im od-chy-le-nia
+ []
+
+[13]
 \openout2 = `rozdzialy/4_analiza_badaÅ„_mnist.aux'.
 
  (./rozdzialy/4_analiza_badaÅ„_mnist.tex
 Rozdzia\l  4.
-) [13
+) [14
 
 
 
@@ -943,7 +978,7 @@ Rozdzia\l  4.
 
  (./rozdzialy/5_analiza_badan_cifar.tex
 Rozdzia\l  5.
-) [14
+) [15
 
 
 
@@ -953,7 +988,7 @@ Rozdzia\l  5.
 
  (./rozdzialy/6_podsumowanie.tex
 Rozdzia\l  6.
-) [15
+) [16
 
 
 
@@ -975,10 +1010,10 @@ Here is how much of TeX's memory you used:
  430 hyphenation exceptions out of 8191
  63i,8n,68p,1560b,1664s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (15 pages, 930236 bytes).
+Output written on main.pdf (16 pages, 935141 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
+ 103 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
