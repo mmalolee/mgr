@@ -14,9 +14,9 @@ Dla każdego zbioru monitorowano wartość funkcji straty oraz dokładność kla
 \centering
 \caption{Zestawienie wartości dokładności dla zbioru MNIST oraz CIFAR-10 dla wszystkich etapów treningu}
 \label{tab:metryki_dla_treningu}
-\begin{tabular}{lccccc}
+\begin{tabular}{cccc}
 \toprule
-\textbf{Zbiór danych} & \textbf{Dokładność treningowa} & \textbf{Dokładność walidacji} & \textbf{Dokładność testowa} \\
+Zbiór danych & $Acc_{train}$ & $Acc_{val}$ & $Acc_{test}$ \\
 \midrule
 MNIST    &  0.9915 & 0.9938 & 0.9937 \\
 CIFAR-10 &  0.9707 & 0.8862 & 0.8806 \\
@@ -32,7 +32,19 @@ Uzyskane wyniki wskazują, że oba modele osiągnęły skuteczność wystarczaj�
 Po przygotowaniu i ocenie modeli klasyfikacyjnych przystąpiono do właściwych eksperymentów związanych z analizą stabilności metod wyjaśniania. Eksperymenty przeprowadzono oddzielnie dla zbiorów MNIST oraz CIFAR-10, a dla każdego z nich rozważono dwa typy perturbacji: szum Gaussa oraz atak FGSM. Ogólny schemat przeprowadzania badań był taki sam. Różnice dotyczyły wykorzystywanego zbioru danych, typu perturbacji oraz zakresu analizowanych klas.
 
 W każdym przypadku punktem wyjścia było wczytanie wcześniej dostrojonego modelu ResNet18 oraz zbioru testowego. Następnie wybierano obrazy, dla których model dokonywał poprawnej klasyfikacji. W przypadku zbioru MNIST analizą objęto wszystkie dziesięć klas, natomiast dla zbioru CIFAR-10 wybrano cztery klasy: \texttt{airplane}, \texttt{automobile}, \texttt{bird} oraz \texttt{cat}. Ograniczenie liczby klas dla CIFAR-10 wynikało z większej złożoności obrazów oraz wyższego kosztu obliczeniowego generowania map atrybucji dla danych naturalnych. Dodatkowo dla CIFAR-10 zastosowano próg pewności predykcji równy 0.99, aby do analizy trafiały przykłady sklasyfikowane przez model z wysoką pewnością. 
-W celu zmaksymalizowania wiarygodności przeprowadzanych badań dla każdej analizowanej klasy przygotowano dwa zestawy przykładów. Pierwszy z nich służył do obliczania metryk ilościowych i obejmował po 10 poprawnie sklasyfikowanych obrazów na klasę. Drugi zestaw przeznaczono do wizualizacji i zawierał po jednym reprezentatywnym przykładzie dla każdej klasy. Takie rozdzielenie pozwoliło uniknąć opierania wniosków ilościowych na pojedynczych obrazach, a jednocześnie umożliwiło czytelne przedstawienie przykładowych map atrybucji w części wynikowej pracy.
+W celu zmaksymalizowania wiarygodności przeprowadzanych badań dla każdej analizowanej klasy przygotowano dwa zestawy przykładów. Pierwszy z nich służył do obliczania metryk ilościowych i obejmował po 10 poprawnie sklasyfikowanych obrazów na klasę. Drugi zestaw przeznaczono do wizualizacji i zawierał po jednym reprezentatywnym przykładzie dla każdej klasy. Takie rozdzielenie pozwoliło uniknąć opierania wniosków ilościowych na pojedynczych obrazach, a jednocześnie umożliwiło czytelne przedstawienie przykładowych map atrybucji w części wynikowej pracy. Przykładowy efekt perturbacji obrazów wejściowych pokazano na rysunku \ref{fig:mnist_noised_sg} oraz \ref{fig:mnist_noised_fgsm}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/mnist_noised_sg.png}
+    \caption{Przykłady nałożonego szumu Gaussa na obrazy wejściowe}
+    \label{fig:mnist_noised_sg}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/mnist_noised_fgsm.png}
+    \caption{Przykłady ataku FGSM na obrazy wejściowe}
+    \label{fig:mnist_noised_fgsm}
+\end{figure} 
 
 W eksperymentach wykorzystano metody wyjaśniania, których implementacja została przedstawiona w rozdziale \ref{sec:metody_wyjasniania_decyzji_modeli}. Dla każdej z nich tworzono osobny obiekt eksperymentu, ale procedura oceny pozostawała taka sama. Najpierw generowano mapę atrybucji dla obrazu oryginalnego, następnie tworzono jego zaburzoną wersję, a później ponownie wyznaczano mapę atrybucji dla obrazu po perturbacji. Pozwalało to bezpośrednio porównać wyjaśnienia uzyskane przed i po modyfikacji obrazu wejściowego. 
 Dla szumu Gaussa analizowano kolejne wartości parametru $\sigma$, natomiast dla FGSM kolejne wartości parametru $\epsilon$, zgodnie z konfiguracją eksperymentu. W części wizualizacyjnej wykorzystywano również pojedyncze, silniejsze wartości perturbacji, takie jak \(\sigma = 0{,}8\) oraz \(\epsilon = 0{,}5\). Ich celem nie było zastąpienie pełnej analizy ilościowej, lecz jej uzupełnienie poprzez pokazanie w czytelny sposób, jak wyraźna perturbacja wpływa na obraz wejściowy oraz odpowiadającą mu mapę atrybucji. 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.13)  20 JUN 2026 15:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.13)  21 JUN 2026 17:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -131,46 +131,69 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@inbox=\box51
 \enit@count@id=\count272
 \enitdp@description=\count273
+) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count274
+\float@exts=\toks22
+\float@box=\box52
+\@float@everytoks=\toks23
+\@floatcapt=\box53
 ) (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
-) (/usr/share/texlive/texmf-dist/tex/latex/hyphenat/hyphenat.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2023/03/13 v3.1a Micro-typographical refinements (RS)
+\MT@toks=\toks24
+\MT@tempbox=\box54
+\MT@count=\count275
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1059.
+LaTeX Info: Redefining \leftprotrusion on input line 1060.
+\MT@prot@toks=\toks25
+LaTeX Info: Redefining \rightprotrusion on input line 1078.
+LaTeX Info: Redefining \textls on input line 1368.
+\MT@outer@kern=\dimen151
+LaTeX Info: Redefining \textmicrotypecontext on input line 1988.
+\MT@listname@count=\count276
+ (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2023/03/13 v3.1a Definitions specific to pdftex (RS)
+LaTeX Info: Redefining \lsstyle on input line 902.
+LaTeX Info: Redefining \lslig on input line 902.
+\MT@outer@space=\skip51
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+ (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2023/03/13 v3.1a microtype main configuration file (RS)
+)) (/usr/share/texlive/texmf-dist/tex/latex/hyphenat/hyphenat.sty
 Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
 \langwohyphens=\language49
 LaTeX Info: Redefining \_ on input line 43.
 ) (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2021/07/05 v2.14 Sectioning titles
-\ttl@box=\box52
-\beforetitleunit=\skip51
-\aftertitleunit=\skip52
-\ttl@plus=\dimen151
-\ttl@minus=\dimen152
-\ttl@toksa=\toks22
-\titlewidth=\dimen153
-\titlewidthlast=\dimen154
-\titlewidthfirst=\dimen155
+\ttl@box=\box55
+\beforetitleunit=\skip52
+\aftertitleunit=\skip53
+\ttl@plus=\dimen152
+\ttl@minus=\dimen153
+\ttl@toksa=\toks26
+\titlewidth=\dimen154
+\titlewidthlast=\dimen155
+\titlewidthfirst=\dimen156
 ) (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/03/12 v3.6j Customizing captions (AR)
  (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/03/12 v2.4 caption3 kernel (AR)
-\caption@tempdima=\dimen156
-\captionmargin=\dimen157
-\caption@leftmargin=\dimen158
-\caption@rightmargin=\dimen159
-\caption@width=\dimen160
-\caption@indent=\dimen161
-\caption@parindent=\dimen162
-\caption@hangindent=\dimen163
+\caption@tempdima=\dimen157
+\captionmargin=\dimen158
+\caption@leftmargin=\dimen159
+\caption@rightmargin=\dimen160
+\caption@width=\dimen161
+\caption@indent=\dimen162
+\caption@parindent=\dimen163
+\caption@hangindent=\dimen164
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count274
-\c@continuedfloat=\count275
-) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count276
-\float@exts=\toks23
-\float@box=\box53
-\@float@everytoks=\toks24
-\@floatcapt=\box54
+\c@caption@flags=\count277
+\c@continuedfloat=\count278
+Package caption Info: float package is loaded.
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
@@ -184,31 +207,31 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
  (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen164
-\Gin@req@width=\dimen165
+\Gin@req@height=\dimen165
+\Gin@req@width=\dimen166
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
-\LTleft=\skip53
-\LTright=\skip54
-\LTpre=\skip55
-\LTpost=\skip56
-\LTchunksize=\count277
-\LTcapwidth=\dimen166
-\LT@head=\box55
-\LT@firsthead=\box56
-\LT@foot=\box57
-\LT@lastfoot=\box58
-\LT@gbox=\box59
-\LT@cols=\count278
-\LT@rows=\count279
-\c@LT@tables=\count280
-\c@LT@chunks=\count281
-\LT@p@ftn=\toks25
+\LTleft=\skip54
+\LTright=\skip55
+\LTpre=\skip56
+\LTpost=\skip57
+\LTchunksize=\count279
+\LTcapwidth=\dimen167
+\LT@head=\box56
+\LT@firsthead=\box57
+\LT@foot=\box58
+\LT@lastfoot=\box59
+\LT@gbox=\box60
+\LT@cols=\count280
+\LT@rows=\count281
+\c@LT@tables=\count282
+\c@LT@chunks=\count283
+\LT@p@ftn=\toks27
 ) (/usr/share/texlive/texmf-dist/tex/latex/footmisc/footmisc.sty
 Package: footmisc 2022/03/08 v6.0d a miscellany of footnote facilities
-\FN@temptoken=\toks26
-\footnotemargin=\dimen167
-\@outputbox@depth=\dimen168
+\FN@temptoken=\toks28
+\footnotemargin=\dimen168
+\@outputbox@depth=\dimen169
 Package footmisc Info: Declaring symbol style bringhurst on input line 695.
 Package footmisc Info: Declaring symbol style chicago on input line 703.
 Package footmisc Info: Declaring symbol style wiley on input line 712.
@@ -233,7 +256,7 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 )) (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count282
+\lrq@indent=\count284
  (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 )) (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
@@ -242,63 +265,63 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-\c@tabx@nest=\count283
-\c@listtotal=\count284
-\c@listcount=\count285
-\c@liststart=\count286
-\c@liststop=\count287
-\c@citecount=\count288
-\c@citetotal=\count289
-\c@multicitecount=\count290
-\c@multicitetotal=\count291
-\c@instcount=\count292
-\c@maxnames=\count293
-\c@minnames=\count294
-\c@maxitems=\count295
-\c@minitems=\count296
-\c@citecounter=\count297
-\c@maxcitecounter=\count298
-\c@savedcitecounter=\count299
-\c@uniquelist=\count300
-\c@uniquename=\count301
-\c@refsection=\count302
-\c@refsegment=\count303
-\c@maxextratitle=\count304
-\c@maxextratitleyear=\count305
-\c@maxextraname=\count306
-\c@maxextradate=\count307
-\c@maxextraalpha=\count308
-\c@abbrvpenalty=\count309
-\c@highnamepenalty=\count310
-\c@lownamepenalty=\count311
-\c@maxparens=\count312
-\c@parenlevel=\count313
-\blx@tempcnta=\count314
-\blx@tempcntb=\count315
-\blx@tempcntc=\count316
-\c@blx@maxsection=\count317
-\blx@maxsegment@0=\count318
-\blx@notetype=\count319
-\blx@parenlevel@text=\count320
-\blx@parenlevel@foot=\count321
-\blx@sectionciteorder@0=\count322
-\blx@sectionciteorderinternal@0=\count323
-\blx@entrysetcounter=\count324
-\blx@biblioinstance=\count325
-\labelnumberwidth=\skip57
-\labelalphawidth=\skip58
-\biblabelsep=\skip59
-\bibitemsep=\skip60
-\bibnamesep=\skip61
-\bibinitsep=\skip62
-\bibparsep=\skip63
-\bibhang=\skip64
+\c@tabx@nest=\count285
+\c@listtotal=\count286
+\c@listcount=\count287
+\c@liststart=\count288
+\c@liststop=\count289
+\c@citecount=\count290
+\c@citetotal=\count291
+\c@multicitecount=\count292
+\c@multicitetotal=\count293
+\c@instcount=\count294
+\c@maxnames=\count295
+\c@minnames=\count296
+\c@maxitems=\count297
+\c@minitems=\count298
+\c@citecounter=\count299
+\c@maxcitecounter=\count300
+\c@savedcitecounter=\count301
+\c@uniquelist=\count302
+\c@uniquename=\count303
+\c@refsection=\count304
+\c@refsegment=\count305
+\c@maxextratitle=\count306
+\c@maxextratitleyear=\count307
+\c@maxextraname=\count308
+\c@maxextradate=\count309
+\c@maxextraalpha=\count310
+\c@abbrvpenalty=\count311
+\c@highnamepenalty=\count312
+\c@lownamepenalty=\count313
+\c@maxparens=\count314
+\c@parenlevel=\count315
+\blx@tempcnta=\count316
+\blx@tempcntb=\count317
+\blx@tempcntc=\count318
+\c@blx@maxsection=\count319
+\blx@maxsegment@0=\count320
+\blx@notetype=\count321
+\blx@parenlevel@text=\count322
+\blx@parenlevel@foot=\count323
+\blx@sectionciteorder@0=\count324
+\blx@sectionciteorderinternal@0=\count325
+\blx@entrysetcounter=\count326
+\blx@biblioinstance=\count327
+\labelnumberwidth=\skip58
+\labelalphawidth=\skip59
+\biblabelsep=\skip60
+\bibitemsep=\skip61
+\bibnamesep=\skip62
+\bibinitsep=\skip63
+\bibparsep=\skip64
+\bibhang=\skip65
 \blx@bcfin=\read3
 \blx@bcfout=\write3
 \blx@langwohyphens=\language50
-\c@mincomprange=\count326
-\c@maxcomprange=\count327
-\c@mincompwidth=\count328
+\c@mincomprange=\count328
+\c@maxcomprange=\count329
+\c@mincompwidth=\count330
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def
@@ -308,88 +331,88 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'verbose-trad1.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count329
-\c@savedafterword=\count330
-\c@annotator=\count331
-\c@savedannotator=\count332
-\c@author=\count333
-\c@savedauthor=\count334
-\c@bookauthor=\count335
-\c@savedbookauthor=\count336
-\c@commentator=\count337
-\c@savedcommentator=\count338
-\c@editor=\count339
-\c@savededitor=\count340
-\c@editora=\count341
-\c@savededitora=\count342
-\c@editorb=\count343
-\c@savededitorb=\count344
-\c@editorc=\count345
-\c@savededitorc=\count346
-\c@foreword=\count347
-\c@savedforeword=\count348
-\c@holder=\count349
-\c@savedholder=\count350
-\c@introduction=\count351
-\c@savedintroduction=\count352
-\c@namea=\count353
-\c@savednamea=\count354
-\c@nameb=\count355
-\c@savednameb=\count356
-\c@namec=\count357
-\c@savednamec=\count358
-\c@translator=\count359
-\c@savedtranslator=\count360
-\c@shortauthor=\count361
-\c@savedshortauthor=\count362
-\c@shorteditor=\count363
-\c@savedshorteditor=\count364
-\c@labelname=\count365
-\c@savedlabelname=\count366
-\c@institution=\count367
-\c@savedinstitution=\count368
-\c@lista=\count369
-\c@savedlista=\count370
-\c@listb=\count371
-\c@savedlistb=\count372
-\c@listc=\count373
-\c@savedlistc=\count374
-\c@listd=\count375
-\c@savedlistd=\count376
-\c@liste=\count377
-\c@savedliste=\count378
-\c@listf=\count379
-\c@savedlistf=\count380
-\c@location=\count381
-\c@savedlocation=\count382
-\c@organization=\count383
-\c@savedorganization=\count384
-\c@origlocation=\count385
-\c@savedoriglocation=\count386
-\c@origpublisher=\count387
-\c@savedorigpublisher=\count388
-\c@publisher=\count389
-\c@savedpublisher=\count390
-\c@language=\count391
-\c@savedlanguage=\count392
-\c@origlanguage=\count393
-\c@savedoriglanguage=\count394
-\c@pageref=\count395
-\c@savedpageref=\count396
-\shorthandwidth=\skip65
-\shortjournalwidth=\skip66
-\shortserieswidth=\skip67
-\shorttitlewidth=\skip68
-\shortauthorwidth=\skip69
-\shorteditorwidth=\skip70
-\locallabelnumberwidth=\skip71
-\locallabelalphawidth=\skip72
-\localshorthandwidth=\skip73
-\localshortjournalwidth=\skip74
-\localshortserieswidth=\skip75
-\localshorttitlewidth=\skip76
-\localshortauthorwidth=\skip77
-\localshorteditorwidth=\skip78
+\c@afterword=\count331
+\c@savedafterword=\count332
+\c@annotator=\count333
+\c@savedannotator=\count334
+\c@author=\count335
+\c@savedauthor=\count336
+\c@bookauthor=\count337
+\c@savedbookauthor=\count338
+\c@commentator=\count339
+\c@savedcommentator=\count340
+\c@editor=\count341
+\c@savededitor=\count342
+\c@editora=\count343
+\c@savededitora=\count344
+\c@editorb=\count345
+\c@savededitorb=\count346
+\c@editorc=\count347
+\c@savededitorc=\count348
+\c@foreword=\count349
+\c@savedforeword=\count350
+\c@holder=\count351
+\c@savedholder=\count352
+\c@introduction=\count353
+\c@savedintroduction=\count354
+\c@namea=\count355
+\c@savednamea=\count356
+\c@nameb=\count357
+\c@savednameb=\count358
+\c@namec=\count359
+\c@savednamec=\count360
+\c@translator=\count361
+\c@savedtranslator=\count362
+\c@shortauthor=\count363
+\c@savedshortauthor=\count364
+\c@shorteditor=\count365
+\c@savedshorteditor=\count366
+\c@labelname=\count367
+\c@savedlabelname=\count368
+\c@institution=\count369
+\c@savedinstitution=\count370
+\c@lista=\count371
+\c@savedlista=\count372
+\c@listb=\count373
+\c@savedlistb=\count374
+\c@listc=\count375
+\c@savedlistc=\count376
+\c@listd=\count377
+\c@savedlistd=\count378
+\c@liste=\count379
+\c@savedliste=\count380
+\c@listf=\count381
+\c@savedlistf=\count382
+\c@location=\count383
+\c@savedlocation=\count384
+\c@organization=\count385
+\c@savedorganization=\count386
+\c@origlocation=\count387
+\c@savedoriglocation=\count388
+\c@origpublisher=\count389
+\c@savedorigpublisher=\count390
+\c@publisher=\count391
+\c@savedpublisher=\count392
+\c@language=\count393
+\c@savedlanguage=\count394
+\c@origlanguage=\count395
+\c@savedoriglanguage=\count396
+\c@pageref=\count397
+\c@savedpageref=\count398
+\shorthandwidth=\skip66
+\shortjournalwidth=\skip67
+\shortserieswidth=\skip68
+\shorttitlewidth=\skip69
+\shortauthorwidth=\skip70
+\shorteditorwidth=\skip71
+\locallabelnumberwidth=\skip72
+\locallabelalphawidth=\skip73
+\localshorthandwidth=\skip74
+\localshortjournalwidth=\skip75
+\localshortserieswidth=\skip76
+\localshorttitlewidth=\skip77
+\localshortauthorwidth=\skip78
+\localshorteditorwidth=\skip79
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-compat.def
@@ -399,19 +422,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
-\c@textcitecount=\count397
-\c@textcitetotal=\count398
-\c@textcitemaxnames=\count399
-\c@biburlbigbreakpenalty=\count400
-\c@biburlbreakpenalty=\count401
-\c@biburlnumpenalty=\count402
-\c@biburlucpenalty=\count403
-\c@biburllcpenalty=\count404
+\c@textcitecount=\count399
+\c@textcitetotal=\count400
+\c@textcitemaxnames=\count401
+\c@biburlbigbreakpenalty=\count402
+\c@biburlbreakpenalty=\count403
+\c@biburlnumpenalty=\count404
+\c@biburlucpenalty=\count405
+\c@biburllcpenalty=\count406
 \biburlbigskip=\muskip17
 \biburlnumskip=\muskip18
 \biburlucskip=\muskip19
 \biburllcskip=\muskip20
-\c@smartand=\count405
+\c@smartand=\count407
 )
 Package biblatex Info: Trying to load bibliography style 'verbose-trad1'...
 Package biblatex Info: ... file 'verbose-trad1.bbx' found.
@@ -425,8 +448,8 @@ Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2024/03/21 v3.20 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count406
-\c@bbx:relatedtotal=\count407
+\c@bbx:relatedcount=\count408
+\c@bbx:relatedtotal=\count409
 )))
 Package biblatex Info: Trying to load citation style 'verbose-trad1'...
 Package biblatex Info: ... file 'verbose-trad1.cbx' found.
@@ -451,8 +474,8 @@ Package biblatex Info: Document encoding is UTF8 ....
 Package: expl3 2023-02-22 L3 programming layer (loader) 
  (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count408
-\l__pdf_internal_box=\box60
+\l__color_backend_stack_int=\count410
+\l__pdf_internal_box=\box61
 ))
 Package biblatex Info: ... and expl3
 (biblatex)             2023-02-22 L3 programming layer (loader) 
@@ -464,23 +487,23 @@ Package: xparse 2023-02-02 L3 Experimental document command parser
 Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
 )) (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen169
-\lightrulewidth=\dimen170
-\cmidrulewidth=\dimen171
-\belowrulesep=\dimen172
-\belowbottomsep=\dimen173
-\aboverulesep=\dimen174
-\abovetopsep=\dimen175
-\cmidrulesep=\dimen176
-\cmidrulekern=\dimen177
-\defaultaddspace=\dimen178
-\@cmidla=\count409
-\@cmidlb=\count410
-\@aboverulesep=\dimen179
-\@belowrulesep=\dimen180
-\@thisruleclass=\count411
-\@lastruleclass=\count412
-\@thisrulewidth=\dimen181
+\heavyrulewidth=\dimen170
+\lightrulewidth=\dimen171
+\cmidrulewidth=\dimen172
+\belowrulesep=\dimen173
+\belowbottomsep=\dimen174
+\aboverulesep=\dimen175
+\abovetopsep=\dimen176
+\cmidrulesep=\dimen177
+\cmidrulekern=\dimen178
+\defaultaddspace=\dimen179
+\@cmidla=\count411
+\@cmidlb=\count412
+\@aboverulesep=\dimen180
+\@belowrulesep=\dimen181
+\@thisruleclass=\count413
+\@lastruleclass=\count414
+\@thisrulewidth=\dimen182
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -489,20 +512,20 @@ Package csquotes Info: Redefining alias 'default' -> 'polish'.
  (./main.aux (./rozdzialy/1_zbiory_danych.aux) (./rozdzialy/2_srodowisko_badawcze.aux) (./rozdzialy/3_trening_modeli_przebieg_badan.aux) (./rozdzialy/4_analiza_badaÅ„_mnist.aux) (./rozdzialy/5_analiza_badan_cifar.aux) (./rozdzialy/6_podsumowanie.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -538,27 +561,45 @@ LaTeX Font Info:    ... okay on input line 50.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\big@size=\dimen182
+\big@size=\dimen183
+LaTeX Info: Redefining \microtypecontext on input line 52.
+Package microtype Info: Applying patch `item' on input line 52.
+Package microtype Info: Applying patch `toc' on input line 52.
+Package microtype Info: Applying patch `eqnum' on input line 52.
+Package microtype Info: Applying patch `footnote' on input line 52.
+Package microtype Info: Applying patch `verbatim' on input line 52.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+LaTeX Info: Redefining \showhyphens on input line 52.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg
+File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
+)
 Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: float package is loaded.
 Package caption Info: longtable package is loaded.
-(/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count413
-\scratchdimen=\dimen183
-\scratchbox=\box61
-\nofMPsegments=\count414
-\nofMParguments=\count415
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count416
-\MPscratchDim=\dimen184
-\MPnumerator=\count417
-\makeMPintoPDFobject=\count418
-\everyMPtoPDFconversion=\toks28
+\scratchcounter=\count415
+\scratchdimen=\dimen184
+\scratchbox=\box62
+\nofMPsegments=\count416
+\nofMParguments=\count417
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count418
+\MPscratchDim=\dimen185
+\MPnumerator=\count419
+\makeMPintoPDFobject=\count420
+\everyMPtoPDFconversion=\toks30
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -578,15 +619,15 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 50.
-Package biblatex Info: Reference segment=0 on input line 50.
+Package biblatex Info: Reference section=0 on input line 52.
+Package biblatex Info: Reference segment=0 on input line 52.
 \openout2 = `rozdzialy/1_zbiory_danych.aux'.
 
  (./rozdzialy/1_zbiory_danych.tex
 Rozdzia\l  1.
 
-Underfull \hbox (badness 3547) in paragraph at lines 4--5
-\T1/ptm/m/n/12 Pierwszym obiek-tem, na któ-rym prze-pro-wa-dzono ba-da-nia jest po-pu-larny w ucze-niu
+Underfull \hbox (badness 2245) in paragraph at lines 4--5
+\T1/ptm/m/n/12 (+20) Pierwszym obiek-tem, na któ-rym prze-pro-wa-dzono ba-da-nia jest po-pu-larny w ucze-niu
  []
 
 <imgs/1_mnist.png, id=1, 1166.3575pt x 460.72125pt>
@@ -594,11 +635,6 @@ File: imgs/1_mnist.png Graphic file (type png)
 <use imgs/1_mnist.png>
 Package pdftex.def Info: imgs/1_mnist.png  used on input line 8.
 (pdftex.def)             Requested size: 318.66948pt x 125.8727pt.
-
-Underfull \hbox (badness 1210) in paragraph at lines 13--14
-\T1/ptm/m/n/12 zbiór da-nych jest klu-czowy w za-da-niach kla-sy-fi-ka-cji, po-nie-wa» po-zwala na unik-ni¦-cie
- []
-
 [1
 
 
@@ -609,54 +645,42 @@ File: imgs/2_cifar.png Graphic file (type png)
 <use imgs/2_cifar.png>
 Package pdftex.def Info: imgs/2_cifar.png  used on input line 21.
 (pdftex.def)             Requested size: 318.66948pt x 75.72069pt.
-)
-Underfull \hbox (badness 3148) in paragraph at lines 26--52
-\T1/ptm/m/n/12 sztucz-nej in-te-li-gen-cji w wa-run-kach da-nych bar-dziej zªo-»o-nych, które od-zwier-cie-dlaj¡
- []
-
-[2 <./imgs/2_cifar.png>]
+) [2 <./imgs/2_cifar.png>]
 \openout2 = `rozdzialy/2_srodowisko_badawcze.aux'.
 
  (./rozdzialy/2_srodowisko_badawcze.tex
 Rozdzia\l  2.
 
-Underfull \hbox (badness 5817) in paragraph at lines 3--4
-\T1/ptm/m/n/12 W ni-niej-szym roz-dziale przed-sta-wiono wszyst-kie ele-menty ±ro-do-wi-ska ba-daw-czego,
- []
-
-
-Underfull \hbox (badness 3492) in paragraph at lines 3--4
-\T1/ptm/m/n/12 in-for-ma-cje do-ty-cz¡ce ka»-dego z ele-men-tów ±ro-do-wi-ska ba-daw-czego, co po-zwoli na
- []
-
-
-Underfull \hbox (badness 2932) in paragraph at lines 8--9
-\T1/ptm/m/n/12 Prac¦ nad ±ro-do-wi-skiem ba-daw-czym roz-po-cz¦to od za-im-ple-men-to-wa-nia ze-stawu klas
+Underfull \hbox (badness 1648) in paragraph at lines 8--9
+\T1/ptm/m/n/12 (+20) Prac¦ nad ±ro-do-wi-skiem ba-daw-czym roz-po-cz¦to od za-im-ple-men-to-wa-nia ze-stawu klas
  []
 
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 10.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
-) [3
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [3
 
 
 
 
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-Underfull \hbox (badness 2245) in paragraph at lines 14--15
-\T1/cmtt/m/n/12 load_-model_-weights() \T1/ptm/m/n/12 umo»-li-wiaªa wczy-ta-nie za-pi-sa-nych wag mo-delu, prze-nie-sie-nie
+Underfull \hbox (badness 1184) in paragraph at lines 22--23
+\T1/ptm/m/n/12 (+20) do roz-miaru 224x224 pik-seli, na-st¦p-nie za-mie-niane na obiekty typu ten-sor. Ostat-nim
  []
 
-
-Underfull \hbox (badness 1968) in paragraph at lines 22--23
-\T1/ptm/m/n/12 do roz-miaru 224x224 pik-seli, na-st¦p-nie za-mie-niane na obiekty typu ten-sor. Ostat-nim
- []
-
-[4]
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 23.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `ztmcm' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 23.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
@@ -679,306 +703,160 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 23.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 23.
-
-Underfull \hbox (badness 1127) in paragraph at lines 35--37
-\T1/ptm/m/n/12 zbio-rze s¡ jed-no-ka-na-ªowe (skala sza-ro-±ci), ko-nieczne byªo do-da-nie do-dat-ko-wego kroku
- []
-
-
-Underfull \hbox (badness 2894) in paragraph at lines 40--41
-[]\T1/ptm/m/n/12 Po przy-go-to-wa-niu klasy od-po-wie-dzial-nej za za-rz¡-dza-nie da-nymi przy-st¡-piono do
- []
-
-
-Underfull \hbox (badness 1622) in paragraph at lines 40--41
-\T1/ptm/m/n/12 im-ple-men-ta-cji mo-duªu \T1/cmtt/m/n/12 ModelTrainer\T1/ptm/m/n/12 , któ-rego za-da-niem byªo upo-rz¡d-ko-wa-nie pro-cesu
- []
-
-
-Underfull \hbox (badness 3039) in paragraph at lines 42--43
-\T1/ptm/m/n/12 okre-±lano rów-nie» ±cie»k¦ za-pisu mo-delu na pod-sta-wie klasy \T1/cmtt/m/n/12 Paths \T1/ptm/m/n/12 oraz two-rzono
- []
-
-
-Underfull \hbox (badness 1024) in paragraph at lines 42--43
-\T1/ptm/m/n/12 obiekt \T1/cmtt/m/n/12 TrainingConfig\T1/ptm/m/n/12 , z któ-rego po-bie-rano pa-ra-me-try ko-nieczne do prze-pro-wa-dze-nia
- []
-
-
-Underfull \hbox (badness 1622) in paragraph at lines 42--43
-\T1/ptm/m/n/12 tre-ningu. Funk-cja straty zo-staªa zde-fi-nio-wana jako \T1/cmtt/m/n/12 CrossEntropyLoss\T1/ptm/m/n/12 , na-to-miast jako
+ [4]
+Underfull \hbox (badness 1675) in paragraph at lines 40--41
+[]\T1/ptm/m/n/12 (+20) Po przy-go-to-wa-niu klasy od-po-wie-dzial-nej za za-rz¡-dza-nie da-nymi przy-st¡-piono do
  []
 
 [5]
-Underfull \hbox (badness 1436) in paragraph at lines 44--45
-\T1/ptm/m/n/12 pre-dyk-cje dla wszyst-kich przy-kªa-dów te-sto-wych oraz ra-port kla-sy-fi-ka-cyjny za-wie-ra-j¡cy
- []
-
-
-Underfull \hbox (badness 2856) in paragraph at lines 49--50
-\T1/ptm/m/n/12 W celu ge-ne-ro-wa-nia za-kªó-co-nych wer-sji ob-ra-zów wej-±cio-wych wy-ko-rzy-sty-wa-nych w
- []
-
-
-Underfull \hbox (badness 1275) in paragraph at lines 49--50
-\T1/ptm/m/n/12 eks-pe-ry-men-tach nad sta-bil-no-±ci¡ me-tod XAI za-im-ple-men-to-wano klas¦ \T1/cmtt/m/n/12 Perturbations\T1/ptm/m/n/12 .
- []
-
-
-Underfull \hbox (badness 5802) in paragraph at lines 49--50
-\T1/ptm/m/n/12 Jej za-da-niem byªo przy-go-to-wa-nie da-nych pod-da-nych per-tur-ba-cjom, które na-st¦p-nie
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
-[]\T1/ptm/m/n/12 Obiekt klasy \T1/cmtt/m/n/12 Perturbations \T1/ptm/m/n/12 przyj-mo-waª mo-del pre-dyk-cyjny oraz urz¡-dze-nie
+Underfull \hbox (badness 1728) in paragraph at lines 49--50
+\T1/ptm/m/n/12 (+20) W celu ge-ne-ro-wa-nia za-kªó-co-nych wer-sji ob-ra-zów wej-±cio-wych wy-ko-rzy-sty-wa-nych w
  []
 
 
 LaTeX Warning: Reference `eq:szum_gaussa' on page 6 undefined on input line 53.
-
-
-Underfull \hbox (badness 3179) in paragraph at lines 53--54
-\T1/ptm/m/n/12 do ob-razu wej-±cio-wego szum Gaussa. W pierw-szym kroku two-rzono ko-pi¦ ten-sora
- []
 
 [6]
 
 LaTeX Warning: Reference `eq:fgsm' on page 7 undefined on input line 55.
 
 
-Underfull \hbox (badness 1275) in paragraph at lines 55--56
-[]\T1/ptm/m/n/12 Drug¡ me-tod¡ per-tur-ba-cji byªa me-toda \T1/cmtt/m/n/12 fgsm()\T1/ptm/m/n/12 , która ge-ne-ro-waªa ob-raz za-bu-rzony
+Underfull \hbox (badness 2302) in paragraph at lines 60--61
+\T1/ptm/m/n/12 (+20) Kolejnym eta-pem przy-go-to-wy-wa-nia ±ro-do-wi-ska ba-daw-czego byªo za-im-ple-men-to-wa-nie
  []
 
 
-Underfull \hbox (badness 4621) in paragraph at lines 60--61
-\T1/ptm/m/n/12 Kolejnym eta-pem przy-go-to-wy-wa-nia ±ro-do-wi-ska ba-daw-czego byªo za-im-ple-men-to-wa-nie
+Underfull \hbox (badness 1406) in paragraph at lines 60--61
+\T1/ptm/m/n/12 (+20) klas od-po-wie-dzial-nych za ge-ne-ro-wa-nie map atry-bu-cji (wy-ja-±nie«): \T1/cmtt/m/n/12 IGExplainer \T1/ptm/m/n/12 (+20) oraz
  []
 
 
-Underfull \hbox (badness 2343) in paragraph at lines 60--61
-\T1/ptm/m/n/12 klas od-po-wie-dzial-nych za ge-ne-ro-wa-nie map atry-bu-cji (wy-ja-±nie«): \T1/cmtt/m/n/12 IGExplainer \T1/ptm/m/n/12 oraz
- []
-
-
-Underfull \hbox (badness 1163) in paragraph at lines 60--61
-\T1/cmtt/m/n/12 OcclusionExplainer\T1/ptm/m/n/12 . Obie klasy wy-ko-rzy-sty-waªy im-ple-men-ta-cje me-tod do-st¦p-nych w
- []
-
-
-Underfull \hbox (badness 1533) in paragraph at lines 60--61
-\T1/ptm/m/n/12 bi-blio-tece \T1/cmtt/m/n/12 Captum\T1/ptm/m/n/12 , a ich za-da-niem byªo ujed-no-li-ce-nie spo-sobu ge-ne-ro-wa-nia wy-ja-±nie«
- []
-
-
-Underfull \hbox (badness 3039) in paragraph at lines 60--61
-\T1/ptm/m/n/12 oraz prze-twa-rza-nia otrzy-ma-nych atry-bu-cji do for-matu wy-ko-rzy-sty-wa-nego w dal-szych
+Underfull \hbox (badness 1728) in paragraph at lines 60--61
+\T1/ptm/m/n/12 (+20) oraz prze-twa-rza-nia otrzy-ma-nych atry-bu-cji do for-matu wy-ko-rzy-sty-wa-nego w dal-szych
  []
 
 
 LaTeX Warning: Reference `eq:ig' on page 7 undefined on input line 62.
 
 
-Underfull \hbox (badness 1953) in paragraph at lines 62--64
-\T1/ptm/m/n/12 Gªówn¡ funk-cjo-nal-no±¢ klasy sta-no-wiªa me-toda \T1/cmtt/m/n/12 explain()\T1/ptm/m/n/12 , która przyj-mo-waªa ten-sor
- []
-
-
-Underfull \vbox (badness 2409) has occurred while \output is active []
-
- [7]
-Underfull \hbox (badness 3219) in paragraph at lines 65--66
-[]\T1/ptm/m/n/12 Klasa \T1/cmtt/m/n/12 OcclusionExplainer \T1/ptm/m/n/12 peª-niªa ana-lo-giczn¡ rol¦ dla me-tody Oc-c-lu-sion. Do
- []
-
-
-Underfull \hbox (badness 1137) in paragraph at lines 65--66
-\T1/ptm/m/n/12 ana-li-zo-wa-nego zbioru da-nych. We-wn¡trz klasy two-rzony byª obiekt \T1/cmtt/m/n/12 OcclusionConfig\T1/ptm/m/n/12 ,
+Underfull \hbox (badness 2717) in paragraph at lines 65--66
+\T1/ptm/m/n/12 (+20) kon-struk-tora prze-ka-zy-wano mo-del pre-dyk-cyjny, urz¡-dze-nie ob-li-cze-niowe oraz na-zw¦
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 65--66
-\T1/ptm/m/n/12 rów-nie» obiekt \T1/cmtt/m/n/12 Occlusion \T1/ptm/m/n/12 z bi-blio-teki \T1/cmtt/m/n/12 Captum\T1/ptm/m/n/12 . W me-to-dzie \T1/cmtt/m/n/12 explain() \T1/ptm/m/n/12 klasy
+\T1/ptm/m/n/12 (+20) rów-nie» obiekt \T1/cmtt/m/n/12 Occlusion \T1/ptm/m/n/12 (+20) z bi-blio-teki \T1/cmtt/m/n/12 Captum\T1/ptm/m/n/12 (+20) . W me-to-dzie \T1/cmtt/m/n/12 explain() \T1/ptm/m/n/12 (+20) klasy
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 65--66
-\T1/cmtt/m/n/12 OcclusionExplainer \T1/ptm/m/n/12 ten-sor wej-±ciowy prze-no-szono na urz¡-dze-nie ob-li-cze-niowe
+\T1/cmtt/m/n/12 OcclusionExplainer \T1/ptm/m/n/12 (+20) ten-sor wej-±ciowy prze-no-szono na urz¡-dze-nie ob-li-cze-niowe
  []
 
 
-Underfull \hbox (badness 3612) in paragraph at lines 65--66
-\T1/ptm/m/n/12 oraz two-rzono ten-sor ba-zowy wy-peª-niony war-to-±ci¡ \T1/cmtt/m/n/12 baseline_-value\T1/ptm/m/n/12 . Na-st¦p-nie, w
+Underfull \hbox (badness 2495) in paragraph at lines 65--66
+\T1/ptm/m/n/12 (+20) oraz two-rzono ten-sor ba-zowy wy-peª-niony war-to-±ci¡ \T1/cmtt/m/n/12 baseline_-value\T1/ptm/m/n/12 (+20) . Na-st¦p-nie, w
  []
 
-
-Underfull \hbox (badness 6396) in paragraph at lines 65--66
-\T1/ptm/m/n/12 za-le»-no-±ci od war-to-±ci pola \T1/cmtt/m/n/12 dataset\T1/ptm/m/n/12 , wy-bie-rano od-po-wied-nie pa-ra-me-try \T1/cmtt/m/n/12 strides
- []
-
-
-Underfull \hbox (badness 4229) in paragraph at lines 65--66
-\T1/ptm/m/n/12 oraz \T1/cmtt/m/n/12 sliding_-window_-shapes\T1/ptm/m/n/12 . Atry-bu-cje wy-zna-czano na-st¦p-nie za po-moc¡ me-tody
- []
-
+[7]
 
 LaTeX Warning: Reference `eq:cos_sim' on page 8 undefined on input line 74.
 
 
-Underfull \hbox (badness 3568) in paragraph at lines 74--75
-[]\T1/ptm/m/n/12 Pierwsz¡ za-im-ple-men-to-wan¡ me-tryk¡ byªo po-do-bie«-stwo co-si-nu-sowe, re-ali-zo-wane
+Underfull \hbox (badness 1394) in paragraph at lines 76--77
+\T1/cmtt/m/n/12 top_-k_-percent \T1/ptm/m/n/12 (+20) wy-zna-czano liczb¦ pik-seli na-le-»¡-cych do grupy naj-bar-dziej istot-nych
  []
 
 
-Underfull \hbox (badness 1454) in paragraph at lines 76--77
-\T1/ptm/m/n/12 Po-dob-nie jak w przy-padku po-do-bie«-stwa co-si-nu-so-wego, mapy atry-bu-cji byªy naj-pierw
+Underfull \hbox (badness 1565) in paragraph at lines 78--80
+\T1/ptm/m/n/12 (+20) me-toda \T1/cmtt/m/n/12 deletion_-auc()\T1/ptm/m/n/12 (+20) . Jej dzia-ªa-nie roz-po-czy-naªo si¦ od utwo-rze-nia ko-pii ob-razu
+ []
+
+[8]
+Underfull \hbox (badness 1997) in paragraph at lines 84--85
+\T1/ptm/m/n/12 (+20) Gªównym mo-du-ªem od-po-wie-dzial-nym za prze-pro-wa-dza-nie eks-pe-ry-men-tów byªa klasa
  []
 
 
-Underfull \hbox (badness 2285) in paragraph at lines 76--77
-\T1/cmtt/m/n/12 top_-k_-percent \T1/ptm/m/n/12 wy-zna-czano liczb¦ pik-seli na-le-»¡-cych do grupy naj-bar-dziej istot-nych
+Underfull \hbox (badness 1354) in paragraph at lines 84--85
+\T1/cmtt/m/n/12 XAIExperiment\T1/ptm/m/n/12 (+20) . Jej za-da-niem byªa or-kie-stra-cja wcze-±niej przy-go-to-wa-nych ele-men-tów
  []
 
 
-Underfull \hbox (badness 2351) in paragraph at lines 78--80
-\T1/ptm/m/n/12 me-toda \T1/cmtt/m/n/12 deletion_-auc()\T1/ptm/m/n/12 . Jej dzia-ªa-nie roz-po-czy-naªo si¦ od utwo-rze-nia ko-pii ob-razu
+Underfull \hbox (badness 1490) in paragraph at lines 84--85
+\T1/ptm/m/n/12 (+20) ±ro-do-wi-ska ba-daw-czego. Klasa ta umo»-li-wiaªa prze-pro-wa-dze-nie kom-plet-nej pro-ce-dury
  []
 
 
-Underfull \vbox (badness 1424) has occurred while \output is active []
-
- [8]
-Underfull \hbox (badness 3713) in paragraph at lines 84--85
-\T1/ptm/m/n/12 Gªównym mo-du-ªem od-po-wie-dzial-nym za prze-pro-wa-dza-nie eks-pe-ry-men-tów byªa klasa
- []
-
-
-Underfull \hbox (badness 2269) in paragraph at lines 84--85
-\T1/cmtt/m/n/12 XAIExperiment\T1/ptm/m/n/12 . Jej za-da-niem byªa or-kie-stra-cja wcze-±niej przy-go-to-wa-nych ele-men-tów
- []
-
-
-Underfull \hbox (badness 2856) in paragraph at lines 84--85
-\T1/ptm/m/n/12 ±ro-do-wi-ska ba-daw-czego. Klasa ta umo»-li-wiaªa prze-pro-wa-dze-nie kom-plet-nej pro-ce-dury
- []
-
-
-Underfull \hbox (badness 7869) in paragraph at lines 88--93
-[]\T1/ptm/m/n/12 Metoda \T1/cmtt/m/n/12 iter_-clean_-examples() \T1/ptm/m/n/12 umo»-li-wiaªa ite-ra-cj¦ po wszyst-kich ob-ra-zach
- []
-
-
-Underfull \hbox (badness 2334) in paragraph at lines 88--93
-\T1/ptm/m/n/12 Me-toda \T1/cmtt/m/n/12 run_-similarity_-metrics() \T1/ptm/m/n/12 od-po-wia-daªa za ob-li-cza-nie me-tryk po-do-bie«-stwa
- []
-
-
-Underfull \hbox (badness 1112) in paragraph at lines 88--93
-\T1/ptm/m/n/12 po-mi¦-dzy ma-pami atry-bu-cji ob-ra-zów ory-gi-nal-nych i za-bu-rzo-nych. W pierw-szym kroku
- []
-
-
-Underfull \hbox (badness 1168) in paragraph at lines 88--93
-\T1/ptm/m/n/12 two-rzono pa-mi¦¢ pod-r¦czn¡ map atry-bu-cji dla ob-ra-zów ory-gi-nal-nych, aby unik-n¡¢ ich
+Underfull \hbox (badness 5667) in paragraph at lines 88--93
+[]\T1/ptm/m/n/12 (+20) Metoda \T1/cmtt/m/n/12 iter_-clean_-examples() \T1/ptm/m/n/12 (+20) umo»-li-wiaªa ite-ra-cj¦ po wszyst-kich ob-ra-zach
  []
 
 
 Underfull \hbox (badness 1107) in paragraph at lines 88--93
-\T1/ptm/m/n/12 wie-lo-krot-nego prze-li-cza-nia dla ka»-dej war-to-±ci per-tur-ba-cji. Do ob-li-cza-nia po-do-bie«-stwa
+\T1/ptm/m/n/12 (+20) od war-to-±ci pa-ra-me-tru \T1/cmtt/m/n/12 perturbation_-type \T1/ptm/m/n/12 (+20) me-toda wy-wo-ªy-waªa od-po-wied-ni¡ funk-cj¦
  []
 
-
-Underfull \hbox (badness 1087) in paragraph at lines 88--93
-\T1/ptm/m/n/12 sªow-ni-ków za-wie-ra-j¡-cych typ per-tur-ba-cji, war-to±¢ pa-ra-me-tru, iden-ty-fi-ka-tor klasy, na-zw¦
- []
-
-[9]
-Underfull \hbox (badness 5077) in paragraph at lines 94--95
-[]\T1/ptm/m/n/12 W kla-sie za-im-ple-men-to-wano rów-nie» me-tody po-moc-ni-cze sªu-»¡ce do agre-ga-cji
- []
-
-
-Underfull \hbox (badness 5504) in paragraph at lines 94--95
-\T1/ptm/m/n/12 me-tryki byªy u±red-niane dla po-szcze-gól-nych klas i po-zio-mów per-tur-ba-cji. Me-toda
- []
-
-
-Underfull \hbox (badness 1642) in paragraph at lines 94--95
-\T1/cmtt/m/n/12 summarize_-similarity() \T1/ptm/m/n/12 gru-po-waªa wy-niki me-tryk po-do-bie«-stwa wzgl¦-dem war-to-±ci
- []
-
-) [10]
+[9]) [10]
 \openout2 = `rozdzialy/3_trening_modeli_przebieg_badan.aux'.
 
  (./rozdzialy/3_trening_modeli_przebieg_badan.tex
 Rozdzia\l  3.
-
-Underfull \hbox (badness 1629) in paragraph at lines 8--9
-\T1/ptm/m/n/12 Przygotowanie ba-da« roz-po-czeto od wy-tre-no-wa-nia mo-delu kla-sy-fi-ka-cyj-nego dla zbioru
- []
-
-
-Underfull \hbox (badness 2418) in paragraph at lines 8--9
-\T1/ptm/m/n/12 wy-tre-no-wa-nymi, a ostat-ni¡ war-stw¦ kla-sy-fi-ka-cyjn¡ za-st¡-piono now¡ war-stw¡ w peªni
- []
-
 [11
 
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 32--33
-\T1/ptm/m/n/12 Po przy-go-to-wa-niu i oce-nie mo-deli kla-sy-fi-ka-cyj-nych przy-st¡-piono do wªa-±ci-wych
- []
-
-
-Underfull \hbox (badness 6825) in paragraph at lines 32--33
-\T1/ptm/m/n/12 eks-pe-ry-men-tów zwi¡-za-nych z ana-liz¡ sta-bil-no-±ci me-tod wy-ja-±nia-nia. Eks-pe-ry-menty
- []
-
-
-Underfull \hbox (badness 4739) in paragraph at lines 32--33
-\T1/ptm/m/n/12 prze-pro-wa-dzono od-dziel-nie dla zbio-rów MNIST oraz CIFAR-10, a dla ka»-dego z
- []
-
-
-Underfull \hbox (badness 1622) in paragraph at lines 34--36
-\T1/ptm/m/n/12 kosztu ob-li-cze-nio-wego ge-ne-ro-wa-nia map atry-bu-cji dla da-nych na-tu-ral-nych. Do-dat-kowo
- []
-
-
-Underfull \hbox (badness 1087) in paragraph at lines 37--39
-\T1/ptm/m/n/12 uzy-skane przed i po mo-dy-fi-ka-cji ob-razu wej-±cio-wego. Dla szumu Gaussa ana-li-zo-wano
- []
-
-[12])
-Underfull \hbox (badness 5519) in paragraph at lines 42--54
-[]\T1/ptm/m/n/12 Wyniki po-szcze-gól-nych eks-pe-ry-men-tów za-pi-sy-wano w po-staci ta-be-la-rycz-nej. W
- []
-
-
-Underfull \hbox (badness 3547) in paragraph at lines 42--54
-\T1/ptm/m/n/12 po-do-bie«-stwa co-si-nu-so-wego oraz Top-K IoU, a tak»e od-po-wia-da-j¡ce im od-chy-le-nia
- []
-
-[13]
+<imgs/mnist_noised_sg.png, id=50, 779.91376pt x 591.20876pt>
+File: imgs/mnist_noised_sg.png Graphic file (type png)
+<use imgs/mnist_noised_sg.png>
+Package pdftex.def Info: imgs/mnist_noised_sg.png  used on input line 38.
+(pdftex.def)             Requested size: 364.19667pt x 276.07295pt.
+<imgs/mnist_noised_fgsm.png, id=51, 786.94pt x 591.20876pt>
+File: imgs/mnist_noised_fgsm.png Graphic file (type png)
+<use imgs/mnist_noised_fgsm.png>
+Package pdftex.def Info: imgs/mnist_noised_fgsm.png  used on input line 44.
+(pdftex.def)             Requested size: 364.19667pt x 273.61018pt.
+ [12] [13 <./imgs/mnist_noised_sg.png> <./imgs/mnist_noised_fgsm.png>]) [14]
 \openout2 = `rozdzialy/4_analiza_badaÅ„_mnist.aux'.
 
  (./rozdzialy/4_analiza_badaÅ„_mnist.tex
 Rozdzia\l  4.
-) [14
+<imgs/mnist_ig_clean.png, id=64, 681.54625pt x 513.92pt>
+File: imgs/mnist_ig_clean.png Graphic file (type png)
+<use imgs/mnist_ig_clean.png>
+Package pdftex.def Info: imgs/mnist_ig_clean.png  used on input line 11.
+(pdftex.def)             Requested size: 364.19667pt x 274.62688pt.
+<imgs/mnist_ig_sg_vs_clean.png, id=65, 651.43375pt x 488.82625pt>
+File: imgs/mnist_ig_sg_vs_clean.png Graphic file (type png)
+<use imgs/mnist_ig_sg_vs_clean.png>
+Package pdftex.def Info: imgs/mnist_ig_sg_vs_clean.png  used on input line 20.
+(pdftex.def)             Requested size: 364.19667pt x 273.29329pt.
+[15
 
 
 
 
-]
+ <./imgs/mnist_ig_clean.png>]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
+ [16 <./imgs/mnist_ig_sg_vs_clean.png>] [17] [18]
+<imgs/mnist_ig_fgsm_vs_clean.png, id=80, 696.6025pt x 525.965pt>
+File: imgs/mnist_ig_fgsm_vs_clean.png Graphic file (type png)
+<use imgs/mnist_ig_fgsm_vs_clean.png>
+Package pdftex.def Info: imgs/mnist_ig_fgsm_vs_clean.png  used on input line 92.
+(pdftex.def)             Requested size: 364.19667pt x 274.98007pt.
+ [19 <./imgs/mnist_ig_fgsm_vs_clean.png>] [20]) [21]
 \openout2 = `rozdzialy/5_analiza_badan_cifar.aux'.
 
  (./rozdzialy/5_analiza_badan_cifar.tex
 Rozdzia\l  5.
-) [15
+) [22
 
 
 
@@ -988,7 +866,7 @@ Rozdzia\l  5.
 
  (./rozdzialy/6_podsumowanie.tex
 Rozdzia\l  6.
-) [16
+) [23
 
 
 
@@ -1002,18 +880,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14605 strings out of 477136
- 277357 string characters out of 5813392
- 1861388 words of memory out of 6000000
- 34663 multiletter control sequences out of 15000+600000
- 538570 words of font info for 71 fonts, out of 8000000 for 9000
+ 16726 strings out of 477136
+ 313939 string characters out of 5813392
+ 1866388 words of memory out of 6000000
+ 36553 multiletter control sequences out of 15000+600000
+ 557082 words of font info for 218 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 63i,8n,68p,1560b,1664s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 63i,11n,68p,2464b,1664s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (16 pages, 936140 bytes).
+Output written on main.pdf (23 pages, 2586634 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
+ 135 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 48676 words of extra memory for PDF output out of 51595 (max. 10000000)
 
