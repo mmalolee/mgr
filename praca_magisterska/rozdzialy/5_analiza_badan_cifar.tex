@@ -1,13 +1,114 @@
 \chapter{Analiza wyników badań dla zbioru CIAR-10}
 
+W niniejszym rozdziale przedstawiono analizę wyników badań wyjaśnień metodą Integrated Gradients oraz Occlusion dla zbioru CIFAR-10.
+
 \section{Wpływ szumu Gaussa na wyjaśnienia generowane metodą Integrated Gradients}
 \label{sec:ig_vs_szum_gaussa_cifar}
+
+Tak jak w kroku poprzednim, analizę rozpoczęto od oceny map atrybucji wygenerowanych metodą Integrated Gradients dla niezaburzonych obrazów ze zbioru CIFAR-10. Przykładowe wyniki przedstawiono na rysunku \ref{fig:cifar_ig_cleam}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/cifar_ig_cleam.png}
+    \caption{Mapy atrybucji Integrated Gradients dla obrazów niezaszumionych}
+    \label{fig:cifar_ig_cleam}
+\end{figure}
+
+\noindent W przeciwieństwie do zbioru MNIST, analizowane obrazy mają bardziej złożony charakter: zawierają kolorowe tło, obiekty o mniej regularnych kształtach oraz większą liczbę elementów wizualnych niezwiązanych bezpośrednio z klasą obiektu. Z tego względu mapy atrybucji są mniej jednoznaczne i bardziej rozproszone niż w przypadku cyfr. Dla klasy \texttt{airplane} aktywacje są bardziej rozproszone i obejmują nie tylko obszar samego obiektu, ale również jego otoczenie. W przypadku klasy \texttt{automobile} najwyższe wartości atrybucji pojawiają się głównie w rejonie samochodu, przy czym widoczna jest także niewielka aktywacja na tle. Podobnie dla klas \texttt{bird} oraz \texttt{cat} mapy koncentrują się przede wszystkim w pobliżu analizowanych obiektów, ale zawierają również słabsze aktywacje poza ich bezpośrednim konturem.
+
+Identycznie jak poprzednio, mapy Integrated Gradients dla obrazów niezaburzonych stanowiły punkt odniesienia dla dalszej analizy stabilności. W kolejnym kroku zbadano mapy atrybucji przykładów niezaszumionych z zaszumionymi. Porównanie przedstawiono na rysunku \ref{fig:cifar_of_sg_vs_clean}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/cifar_of_sg_vs_clean.png}
+    \caption{Mapy atrybucji Integrated Gradients dla obrazów niezaszumionych}
+    \label{fig:cifar_of_sg_vs_clean}
+\end{figure}
+
+\noindent Po dodaniu szumu Gaussa widoczne było przede wszystkim silne osłabienie map atrybucji.
+Najbardziej czytelna mapa pozostała dla klasy \texttt{automobile}. W tym przypadku nadal widoczne były słabe aktywacje w obszarze zbliżonym do położenia obiektu, chociaż ich intensywność była wyraźnie mniejsza niż dla obrazu oryginalnego. Oznacza to, że szum Gaussa w znacznym stopniu reduykował siłę atrybucji, ale nie we wszystkich przykładach prowadził do prawie całkowitego zaniku informacji o obszarach istotnych.
+
+Przystąpiono to zbadania metryk podobieństwa, których wartości pokazano w tabeli \ref{tab:ig_sg_cos_topk_cifar10}. Wyniki wskazywały na systematyczny spadek zgodności map wraz ze wzrostem wartości parametru $\sigma$.
+Dla najmniejszej wartości zakłócenia $\sigma = 0{,}010$ średnie podobieństwo cosinusowe wynosiło $0{,}928$, co oznaczało, że ogólny rozkład atrybucji pozostawał jeszcze w dużym stopniu podobny do mapy uzyskanej dla obrazu oryginalnego. Jednocześnie średnia wartość Top-K IoU wynosiła $0{,}586$, a więc zgodność najbardziej istotnych obszarów była wyraźnie niższa niż mogłoby wynikać z samego podobieństwa cosinusowego. Już dla niewielkiego poziomu szumu lokalizacja najważniejszych fragmentów mapy była więc częściowo zaburzona.
+Wraz ze wzrostem wartości $\sigma$ obie metryki stopniowo malały. Dla $\sigma = 0{,}100$ podobieństwo cosinusowe wynosiło $0{,}743$, natomiast Top-K IoU spadło do $0{,}288$. Oznaczało to, że mapa jako całość zachowywała jeszcze pewien stopień podobieństwa do mapy oryginalnej, ale obszary wskazywane jako najważniejsze coraz słabiej pokrywały się z wcześniejszymi atrybucjami. Przy większych wartościach szumu spadek był jeszcze bardziej widoczny. Dla $\sigma = 0{,}500$ podobieństwo cosinusowe wynosiło $0{,}576$, a Top-K IoU jedynie $0{,}147$, natomiast dla $\sigma = 0{,}800$ wartości te spadły odpowiednio do $0{,}529$ oraz $0{,}114$.
+Szczególnie istotna była różnica pomiędzy podobieństwem cosinusowym a Top-K IoU. Podobieństwo cosinusowe malało stopniowo, ale pozostawało na umiarkowanym poziomie nawet dla silniejszych zakłóceń. Top-K IoU spadało natomiast znacznie szybciej, co wskazywało, że szum Gaussa szczególnie mocno wpływał na lokalizację najbardziej istotnych obszarów mapy. Odchylenia standardowe dla podobieństwa cosinusowego pozostawały stosunkowo niewielkie. W przypadku Top-K IoU odchylenia standardowe również nie były wysokie, co sugerowało, że spadek zgodności najważniejszych obszarów występował regularnie w analizowanych przykładach.
+
+\begin{table}[H] \centering \caption{Zestawienie metryk podobieństwa dla różnych wartości parametru \(\sigma\) dla zbioru CIFAR-10 i metody Integrated Gradients} \label{tab:ig_sg_cos_topk_cifar10} \begin{tabular}{ccccc} \toprule $\sigma$ & $\overline{cos}$ & $SD_{cos}$ & $\overline{IoU}_{K}$ & $SD_{IoU}$ \\ \midrule 0.010 & 0.928 & 0.017 & 0.586 & 0.056 \\ 0.030 & 0.858 & 0.030 & 0.438 & 0.059 \\ 0.050 & 0.813 & 0.037 & 0.371 & 0.068 \\ 0.075 & 0.771 & 0.036 & 0.320 & 0.064 \\ 0.100 & 0.743 & 0.041 & 0.288 & 0.068 \\ 0.150 & 0.701 & 0.046 & 0.246 & 0.067 \\ 0.200 & 0.673 & 0.054 & 0.220 & 0.067 \\ 0.300 & 0.631 & 0.060 & 0.184 & 0.055 \\ 0.500 & 0.576 & 0.049 & 0.147 & 0.046 \\ 0.800 & 0.529 & 0.054 & 0.114 & 0.038 \\ \bottomrule \end{tabular} \end{table}
+
+W tabeli \ref{tab:ig_sg_auc_conf_cifar10} przedstawiono wyniki Deletion AUC. Średnia wartość Deletion AUC dla obrazów oryginalnych wynosiła $0{,}187$, natomiast średnia pewność modelu względem klasy docelowej była bardzo wysoka i wynosiła $0{,}999$.
+Dla obrazów zaburzonych wartości $\overline{AUC}_{p}$ przy niskich poziomach szumu pozostawały zbliżone do wartości uzyskanej dla obrazów oryginalnych. Dla $\sigma = 0{,}010$ wartość ta wynosiła $0{,}195$, dla $\sigma = 0{,}030$ wzrosła do $0{,}207$, a dla $\sigma = 0{,}050$ ponownie wynosiła $0{,}195$. Oznaczało to, że przy niewielkim zakłóceniu usuwanie pikseli wskazanych przez mapę atrybucji wpływało na model w podobny sposób jak w przypadku obrazów niezaburzonych. Wraz ze wzrostem wartości $\sigma$ widoczny był jednak stopniowy spadek wartości $\overline{AUC}{p}$. Dla $\sigma = 0{,}150$ wynosiła ona $0{,}173$, dla $\sigma = 0{,}300$ spadła do $0{,}161$, a dla $\sigma = 0{,}500$ osiągnęła wartość $0{,}147$. Dla największego poziomu szumu, $\sigma = 0{,}800$, wartość $\overline{AUC}{p}$ wynosiła $0{,}153$, czyli była nieznacznie wyższa niż dla $\sigma = 0{,}500$, ale nadal niższa od wartości dla obrazów oryginalnych. Należało również uwzględnić spadek pewności modelu oraz liczbę zmian predykcji. Dla małych wartości $\sigma$ model zachowywał bardzo wysoką pewność. Dla $\sigma = 0{,}010$ oraz $\sigma = 0{,}030$ średnia pewność dla obrazów zaburzonych wynosiła odpowiednio $0{,}999$ oraz $0{,}998$, a predykcja nie zmieniła się ani razu. Od $\sigma = 0{,}050$ zaczęły pojawiać się pojedyncze zmiany predykcji, ale model nadal klasyfikował obrazy z wysoką pewnością.Silniejszy wpływ szumu był widoczny od wartości $\sigma = 0{,}150$. Średnia pewność modelu spadła wtedy do $0{,}824$, a liczba zmian predykcji wzrosła do 6. Dla $\sigma = 0{,}200$ pewność obniżyła się już do $0{,}590$, przy 17 zmianach predykcji. Przy najwyższych poziomach szumu model tracił stabilność klasyfikacji w bardzo dużym stopniu: dla $\sigma = 0{,}500$ średnia pewność wynosiła $0{,}155$, a liczba zmian predykcji osiągnęła 36, natomiast dla $\sigma = 0{,}800$ pewność spadła do $0{,}112$, przy 39 zmianach predykcji.
+
+\begin{table}[H] \centering \caption{Wpływ wartości parametru \(\sigma\) szumu Gaussa na metryki AUC, pewność predykcji oraz liczbę zmian predykcji dla zbioru CIFAR-10 i metody Integrated Gradients} \label{tab:ig_sg_auc_conf_cifar10} \begin{tabular}{cccccccc} \toprule $\sigma$ & $\overline{AUC}_{c}$ & $SD_{AUC,c}$ & $\overline{AUC}_{p}$ & $SD_{AUC,p}$ & $\overline{Conf}_{c}$ & $\overline{Conf}_{p}$ & $N_{chg}$ \\ \midrule 0.010 & 0.187 & 0.196 & 0.195 & 0.200 & 0.999 & 0.999 & 0 \\ 0.030 & 0.187 & 0.196 & 0.207 & 0.208 & 0.999 & 0.998 & 0 \\ 0.050 & 0.187 & 0.196 & 0.195 & 0.198 & 0.999 & 0.985 & 1 \\ 0.075 & 0.187 & 0.196 & 0.186 & 0.179 & 0.999 & 0.975 & 1 \\ 0.100 & 0.187 & 0.196 & 0.194 & 0.185 & 0.999 & 0.959 & 1 \\ 0.150 & 0.187 & 0.196 & 0.173 & 0.149 & 0.999 & 0.824 & 6 \\ 0.200 & 0.187 & 0.196 & 0.168 & 0.149 & 0.999 & 0.590 & 17 \\ 0.300 & 0.187 & 0.196 & 0.161 & 0.149 & 0.999 & 0.411 & 25 \\ 0.500 & 0.187 & 0.196 & 0.147 & 0.134 & 0.999 & 0.155 & 36 \\ 0.800 & 0.187 & 0.196 & 0.153 & 0.110 & 0.999 & 0.112 & 39 \\ \bottomrule \end{tabular} \end{table}
 
 \section{Wpływ ataku FGSM na wyjaśnienia generowane metodą Integrated Gradients}
 \label{sec:ig_vs_fgsm_cifar}
 
+Kolejnym etapem badań była analiza wpływu ataku FGSM na generowane wyjaśnienia metodą Integrated Gradients. Mapy atrybucji dla wspomnianego ataku pokazano na rysunku \ref{fig:cifar_ig_fgsm_vs_clean}. Po zastosowaniu ataku aktywacje zostały jednak bardzo silnie osłabione. Dla wszystkich analizowanych klas mapy po perturbacji były znacznie mniej czytelne niż mapy dla obrazów oryginalnych. W przypadku klasy \texttt{airplane} można zauważyć jedynie bardzo słabe pozostałości aktywacji, głównie po prawej stronie obrazu. Dla klas \texttt{automobile}, \texttt{bird} oraz \texttt{cat} mapy po ataku niemal całkowicie zanikały, przez co trudno było wskazać obszary, które metoda uznała za istotne dla decyzji modelu.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/cifar_ig_fgsm_vs_clean.png}
+    \caption{Mapy atrybucji Integrated Gradients dla obrazów niezaatakowanych i zaatakowanych}
+    \label{fig:cifar_ig_fgsm_vs_clean}
+\end{figure}
+
+Przystąpiono do analizy metryk podobieństwa, których wartości zestawiono w tabeli \ref{tab:ig_fgsm_cos_topk_cifar10}. yniki wskazywały, że już dla najmniejszej wartości parametru $\epsilon$ zgodność map była wyraźnie ograniczona.
+Dla $\epsilon = 0{,}010$ średnie podobieństwo cosinusowe wynosiło $0{,}762$, natomiast średnia wartość Top-K IoU jedynie $0{,}305$. Oznaczało to, że ogólny układ wartości atrybucji zachowywał jeszcze pewne podobieństwo do mapy dla obrazu oryginalnego, ale obszary uznawane za najważniejsze pokrywały się już w niewielkim stopniu. Wraz ze wzrostem wartości $\epsilon$ obie metryki stopniowo malały. Dla $\epsilon = 0{,}100$ podobieństwo cosinusowe wynosiło $0{,}581$, a Top-K IoU spadło do $0{,}133$. Przy największej analizowanej wartości $\epsilon = 0{,}500$ średnie podobieństwo cosinusowe osiągnęło wartość $0{,}507$, natomiast Top-K IoU wyniosło jedynie $0{,}088$. Oznaczało to, że dla silnego ataku FGSM mapy po perturbacji bardzo słabo pokrywały się z mapami uzyskanymi dla obrazów oryginalnych, szczególnie w zakresie najbardziej istotnych pikseli. Istotna była różnica pomiędzy wartościami podobieństwa cosinusowego i Top-K IoU. Podobieństwo cosinusowe pozostawało na umiarkowanym poziomie nawet dla dużych wartości $\epsilon$. W przypadku map po ataku FGSM widoczne było silne osłabienie sygnału atrybucji, jednak pewne zależności przestrzenne mogły nadal pozostawać zachowane. Z kolei bardzo niskie wartości Top-K IoU pokazywały, że najważniejsze obszary mapy po perturbacji w niewielkim stopniu pokrywały się z obszarami wskazywanymi dla obrazów niezaburzonych. Odchylenia standardowe dla podobieństwa cosinusowego utrzymywały się na zbliżonym poziomie, od $0{,}047$ do $0{,}062$, co wskazywało na dość konsekwentny wpływ ataku w analizowanych przykładach. W przypadku Top-K IoU odchylenia standardowe również były niewielkie i malały dla większych wartości $\epsilon$, co sugerowało, że przy silniejszych perturbacjach spadek zgodności najważniejszych obszarów był podobny dla większości analizowanych obrazów.
+
+\begin{table}[H]
+    \centering
+    \caption{Zestawienie metryk podobieństwa dla różnych wartości parametru \(\epsilon\) dla zbioru CIFAR-10 i metody Integrated Gradients}
+    \label{tab:ig_fgsm_cos_topk_cifar10}
+    \begin{tabular}{ccccc}
+    \toprule
+    $\epsilon$ & $\overline{cos}$ & $SD_{cos}$ & $\overline{IoU}_{K}$ & $SD_{IoU}$ \\
+    \midrule
+    0.010 & 0.762 & 0.062 & 0.305 & 0.079 \\
+    0.030 & 0.654 & 0.053 & 0.191 & 0.059 \\
+    0.050 & 0.617 & 0.055 & 0.160 & 0.053 \\
+    0.075 & 0.593 & 0.055 & 0.141 & 0.045 \\
+    0.100 & 0.581 & 0.059 & 0.133 & 0.043 \\
+    0.150 & 0.560 & 0.057 & 0.120 & 0.049 \\
+    0.200 & 0.549 & 0.059 & 0.114 & 0.055 \\
+    0.300 & 0.535 & 0.056 & 0.104 & 0.051 \\
+    0.400 & 0.520 & 0.050 & 0.095 & 0.045 \\
+    0.500 & 0.507 & 0.047 & 0.088 & 0.038 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+Wyniki Deletion AUC zaprezentowano w tabeli \ref{tab:ig_fgsm_auc_conf_cifar10}. Średnia wartość Deletion AUC dla obrazów oryginalnych wynosiła $0{,}185$, a średnia pewność modelu względem klasy docelowej była bardzo wysoka i wynosiła $0{,}999$. Dla obrazów po zastosowaniu FGSM widoczny był spadek wartości $\overline{AUC}_{p}$ względem obrazów oryginalnych. Już dla najmniejszej wartości $\epsilon = 0{,}010$ średnia wartość Deletion AUC dla obrazów po perturbacji wynosiła $0{,}145$, a następnie stopniowo malała wraz ze wzrostem siły ataku. Dla $\epsilon = 0{,}200$ osiągnęła wartość $0{,}117$, dla $\epsilon = 0{,}300$ spadła do $0{,}100$, natomiast dla największej analizowanej wartości $\epsilon = 0{,}500$ wyniosła jedynie $0{,}070$. Atak FGSM bardzo silnie wpływał na decyzje modelu już dla najmniejszych wartości parametru $\epsilon$. Dla $\epsilon = 0{,}010$ średnia pewność względem klasy docelowej spadła z $0{,}999$ do $0{,}281$, a predykcja zmieniła się w 29 przypadkach. Dla $\epsilon = 0{,}030$ pewność wynosiła już tylko $0{,}094$, przy 37 zmianach predykcji. Oznaczało to, że nawet bardzo niewielka perturbacja FGSM znacząco zaburzała klasyfikację obrazów CIFAR-10. Dla kolejnych wartości $\epsilon$ liczba zmian predykcji pozostawała bardzo wysoka. Przy $\epsilon = 0{,}075$ zmieniły się wszystkie analizowane predykcje, a średnia pewność modelu względem klasy docelowej spadła do $0{,}026$. Dla większych wartości $\epsilon$ pewność względem klasy docelowej częściowo wzrastała, osiągając $0{,}230$ dla $\epsilon = 0{,}500$, jednak nadal pozostawała znacznie niższa niż dla obrazów oryginalnych.
+
+\begin{table}[H] \centering \caption{Wpływ wartości parametru \(\epsilon\) ataku FGSM na metryki AUC, pewność predykcji oraz liczbę zmian predykcji dla zbioru CIFAR-10 i metody Integrated Gradients} \label{tab:ig_fgsm_auc_conf_cifar10} \begin{tabular}{cccccccc} \toprule $\epsilon$ & $\overline{AUC}_{c}$ & $SD_{AUC,c}$ & $\overline{AUC}_{p}$ & $SD_{AUC,p}$ & $\overline{Conf}_{c}$ & $\overline{Conf}_{p}$ & $N_{chg}$ \\ \midrule 0.010 & 0.185 & 0.195 & 0.145 & 0.165 & 0.999 & 0.281 & 29 \\ 0.030 & 0.185 & 0.195 & 0.146 & 0.146 & 0.999 & 0.094 & 37 \\ 0.050 & 0.185 & 0.195 & 0.144 & 0.145 & 0.999 & 0.064 & 37 \\ 0.075 & 0.185 & 0.195 & 0.144 & 0.145 & 0.999 & 0.026 & 40 \\ 0.100 & 0.185 & 0.195 & 0.136 & 0.130 & 0.999 & 0.033 & 39 \\ 0.150 & 0.185 & 0.195 & 0.126 & 0.125 & 0.999 & 0.078 & 38 \\ 0.200 & 0.185 & 0.195 & 0.117 & 0.105 & 0.999 & 0.118 & 38 \\ 0.300 & 0.185 & 0.195 & 0.100 & 0.096 & 0.999 & 0.176 & 33 \\ 0.400 & 0.185 & 0.195 & 0.085 & 0.079 & 0.999 & 0.211 & 30 \\ 0.500 & 0.185 & 0.195 & 0.070 & 0.069 & 0.999 & 0.230 & 30 \\ \bottomrule \end{tabular} \end{table}
+
 \section{Wpływ szumu Gaussa na wyjaśnienia generowane metodą Occlusion}
 \label{sec:occ_vs_szum_gaussa_cifar}
 
+Kolejny etap eksperymentów odnosił się do badania wyjaśnień generowanych metodą Occlusion. Na rysunku \ref{fig:cifar_occ_clean} pokazano przykłądowe mapy atrybucji dla przykładów niezaburzonych. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/cifar_occ_clean.png}
+    \caption{Mapy atrybucji Occlusion dla obrazów niezaatakowanych}
+    \label{fig:cifar_occ_clean}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/cifar_occ_sg_vs_clean.png}
+    \caption{Mapy atrybucji Occlusion dla obrazów niezaszumionych i zaszumionch}
+    \label{fig:cifar_occ_sg_vs_clean}
+\end{figure}
+
+
+
 \section{Wpływ ataku FGSM na wyjaśnienia generowane metodą Occlusion}
 \label{sec:occ_vs_fgsm_cifar}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/cifar_occ_fgsm_vs_clean.png}
+    \caption{Mapy atrybucji Occlusion dla obrazów niezaatakowanych i zaatakowanych}
+    \label{fig:cifar_occ_fgsm_vs_clean}
+\end{figure}
