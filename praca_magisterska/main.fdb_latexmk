@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1782163887.96754 -1
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1782235586.83457 -1
   "bibliografia.bib" 1781128087.93111 252 a688a0eb6c9cfc7560d2314ba5529bab ""
-  "main.bcf" 1782163887.87947 108126 88ff53158eefd6d7712fe3bf901bd679 "pdflatex"
+  "main.bcf" 1782235586.74136 108126 88ff53158eefd6d7712fe3bf901bd679 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1782163886.54828 "/home/mikolajmalolepszy/Desktop/Projects/mgr/praca_magisterska/main.tex" "main.pdf" "main" 1782163887.96781 0
+["pdflatex"] 1782235585.35654 "/home/mikolajmalolepszy/Desktop/Projects/mgr/praca_magisterska/main.tex" "main.pdf" "main" 1782235586.83486 0
   "/home/mikolajmalolepszy/Desktop/Projects/mgr/praca_magisterska/main.tex" 1782163586.06585 2474 ef6041388c0d7a395f32b341a71ec1bb ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1775001600 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
@@ -135,21 +135,21 @@
   "imgs/mnist_occ_clean.png" 1782163349.44041 103304 6a36ae83009d8ef80b89d3ca9931f6d8 ""
   "imgs/mnist_occ_fgsm_vs_clean.png" 1782163519.44317 85516 c99deb613c687b586063bbae56835e38 ""
   "imgs/mnist_occ_sg_vs_clean.png" 1782163394.37753 105532 0692b4fae652e6400051639477dd243f ""
-  "main.aux" 1782163887.8764 516 8a76c1d04863e5f9dc126d2b6261c6da "pdflatex"
+  "main.aux" 1782235586.73636 516 95be4a0727f24e3c8721c83dbb57dbf7 "pdflatex"
   "main.bbl" 1782039199.66115 466 76d65a242ec496c9b4361af646ff12cb "biber main"
-  "main.run.xml" 1782163887.88104 2353 9e28d0de1e0153ee76b59707e653aa31 "pdflatex"
+  "main.run.xml" 1782235586.7424 2353 9e28d0de1e0153ee76b59707e653aa31 "pdflatex"
   "main.tex" 1782163586.06585 2474 ef6041388c0d7a395f32b341a71ec1bb ""
-  "rozdzialy/1_zbiory_danych.aux" 1782163887.11838 4698 4b6fedb5f3e9599fb7a117346572c9ed "pdflatex"
+  "rozdzialy/1_zbiory_danych.aux" 1782235585.94134 4698 4b6fedb5f3e9599fb7a117346572c9ed "pdflatex"
   "rozdzialy/1_zbiory_danych.tex" 1781128087.93818 3489 0b227c93b7c28cfe3d8bc43f8e14f161 ""
-  "rozdzialy/2_srodowisko_badawcze.aux" 1782163887.17232 5163 9f05cf18ad6d1aed3e3f14e7d4968bdd "pdflatex"
+  "rozdzialy/2_srodowisko_badawcze.aux" 1782235585.99444 5163 9f05cf18ad6d1aed3e3f14e7d4968bdd "pdflatex"
   "rozdzialy/2_srodowisko_badawcze.tex" 1781887066.58679 24925 92b5b9e8dc0b3f905279a46632549743 ""
-  "rozdzialy/3_trening_modeli_przebieg_badan.aux" 1782163887.26508 5075 171dbb5e23c56c6cc3999c65c0d459c1 "pdflatex"
+  "rozdzialy/3_trening_modeli_przebieg_badan.aux" 1782235586.0865 5075 171dbb5e23c56c6cc3999c65c0d459c1 "pdflatex"
   "rozdzialy/3_trening_modeli_przebieg_badan.tex" 1782031079.67639 8208 88171a6a1944d3b0c4fe393a53cca06c ""
-  "rozdzialy/4_analiza_badań_mnist.aux" 1782163887.56439 8300 354e8e24546b3546ad42942ec5d70a94 "pdflatex"
-  "rozdzialy/4_analiza_badań_mnist.tex" 1782145518.93401 28458 2fbbfec1d1e0ae00fd326bb652fba644 ""
-  "rozdzialy/5_analiza_badan_cifar.aux" 1782163887.87395 7474 247c31d169db815608e15d2324d22757 "pdflatex"
-  "rozdzialy/5_analiza_badan_cifar.tex" 1782163884.86393 16997 44b0697f6c1dcf6140e79ed062cd9e14 ""
-  "rozdzialy/6_podsumowanie.aux" 1782163887.8754 4035 47ab7f341e72bbc88089d24fa9c3f62f "pdflatex"
+  "rozdzialy/4_analiza_badań_mnist.aux" 1782235586.39343 8614 7463c533fc8f08abdc19812577ec5473 "pdflatex"
+  "rozdzialy/4_analiza_badań_mnist.tex" 1782234192.09626 31253 4f2456f93eddd2df4d7439a4148a50e3 ""
+  "rozdzialy/5_analiza_badan_cifar.aux" 1782235586.73452 8672 14b35b03b02408c028d5e941d66d12fc "pdflatex"
+  "rozdzialy/5_analiza_badan_cifar.tex" 1782235585.14422 31905 a15500b135c06859a14e226d86a9c859 ""
+  "rozdzialy/6_podsumowanie.aux" 1782235586.73636 4035 eddc7b8d7f23421203ce939c302d9567 "pdflatex"
   "rozdzialy/6_podsumowanie.tex" 1781961832.14568 40 3eead77bb16dc8f8f0ed9eae7691a3f2 ""
   (generated)
   "main.aux"
