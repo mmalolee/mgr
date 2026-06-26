@@ -1,0 +1,1 @@
+Wartości te należy traktować jako test obciążeniowy, którego celem było sprawdzenie granic stabilności metod XAI, a nie jako typowy poziom zakłócenia danych wejściowych.
