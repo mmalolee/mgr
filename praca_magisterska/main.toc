@@ -1,0 +1,26 @@
+\babel@toc {polish}{}\relax 
+\contentsline {chapter}{\numberline {1}Zbiory danych}{3}{}%
+\contentsline {section}{\numberline {1.1}Charakterystyka zbioru MNIST}{3}{}%
+\contentsline {section}{\numberline {1.2}Charakterystyka zbioru CIFAR-10}{3}{}%
+\contentsline {chapter}{\numberline {2}Środowisko badawcze}{5}{}%
+\contentsline {section}{\numberline {2.1}Przygotowanie konfiguracji, ścieżek oraz funkcji pomocniczych}{5}{}%
+\contentsline {section}{\numberline {2.2}Przygotowanie danych oraz procesu trenowania}{6}{}%
+\contentsline {section}{\numberline {2.3}Metody generowania perturbacji}{8}{}%
+\contentsline {section}{\numberline {2.4}Metody XAI}{9}{}%
+\contentsline {section}{\numberline {2.5}Metryki oceny wyjaśnień}{10}{}%
+\contentsline {section}{\numberline {2.6}Orkiestracja eksperymentu}{11}{}%
+\contentsline {chapter}{\numberline {3}Trening modeli oraz przebieg badań}{13}{}%
+\contentsline {section}{\numberline {3.1}Trening modeli klasyfikacyjnych}{13}{}%
+\contentsline {section}{\numberline {3.2}Konfiguracja i przebieg eksperymentów}{14}{}%
+\contentsline {chapter}{\numberline {4}Analiza wyników badań dla zbioru MNIST}{17}{}%
+\contentsline {section}{\numberline {4.1}Wpływ szumu Gaussa na wyjaśnienia generowane metodą Integrated Gradients}{17}{}%
+\contentsline {section}{\numberline {4.2}Wpływ ataku FGSM na wyjaśnienia generowane metodą Integrated Gradients}{20}{}%
+\contentsline {section}{\numberline {4.3}Wpływ szumu Gaussa na wyjaśnienia generowane metodą Occlusion}{23}{}%
+\contentsline {section}{\numberline {4.4}Wpływ ataku FGSM na wyjaśnienia generowane metodą Occlusion}{26}{}%
+\contentsline {chapter}{\numberline {5}Analiza wyników badań dla zbioru CIFAR-10}{30}{}%
+\contentsline {section}{\numberline {5.1}Wpływ szumu Gaussa na wyjaśnienia generowane metodą Integrated Gradients}{30}{}%
+\contentsline {section}{\numberline {5.2}Wpływ ataku FGSM na wyjaśnienia generowane metodą Integrated Gradients}{33}{}%
+\contentsline {section}{\numberline {5.3}Wpływ szumu Gaussa na wyjaśnienia generowane metodą Occlusion}{35}{}%
+\contentsline {section}{\numberline {5.4}Wpływ ataku FGSM na wyjaśnienia generowane metodą Occlusion}{38}{}%
+\contentsline {chapter}{\numberline {6}Analiza porównawcza wyników}{42}{}%
+\contentsline {chapter}{\numberline {7}Podsumowanie}{48}{}%
